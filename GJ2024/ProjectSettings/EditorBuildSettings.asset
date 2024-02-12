@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/AyeshaScenes/Menu's.unity
+    path: Assets/Scenes/AyeshaScenes/MainMenu.unity
     guid: 8a57861c2784867478a009d25610ee05
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
