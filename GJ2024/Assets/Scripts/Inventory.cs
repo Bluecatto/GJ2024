@@ -86,5 +86,6 @@ public class Inventory : MonoBehaviour
     public void CloseMenu()
     {
         Ui.SetActive(false);
+        isUiOpen = false;
     }
 }
