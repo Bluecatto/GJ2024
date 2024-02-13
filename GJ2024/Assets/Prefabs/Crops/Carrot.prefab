@@ -111,9 +111,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e38e5428453334cadee2048a7f1a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plantnumber: 1
+  DeadMat: {fileID: 2100000, guid: eb689e1f7bd930a4db30d8cd91720467, type: 2}
   plantLevel: 0
   maxlevel: 3
   canRegrow: 0
+  isDead: 0
   goBackToLevel: 0
   mesh: {fileID: 5318885540248326585}
   mats:
