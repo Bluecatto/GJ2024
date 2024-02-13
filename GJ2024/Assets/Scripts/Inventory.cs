@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private GameObject Ui, Selector;
+    [SerializeField] private GameObject Ui, Selector, mainItem;
     [SerializeField] private List<GameObject> Slots;
     private bool isUiOpen = false;
     private int slotNumber = 1;
-    [SerializeField] private List<GameObject> hotBarItems;
-    [SerializeField] private List<bool> hotBaroccupied;
-    [SerializeField] private List<GameObject> hotBarItemAmount;
 
-    [SerializeField] private List<GameObject> inventoryItemsIcons;
+    private GameObject TempItem;
+    private ItemContent currentItem;
+    public List<ItemContent> itemsInInventory;
+    public List<bool> isSlotOccupied;
 
     // Start is called before the first frame update
     void Start()
     {
-        hotBarItems[0] = inventoryItemsIcons[0];
+        AddItem(1, 42);
+        //AddItem(4, 16);
+        //AddItem(4, 1);
+        //AddItem(2, 6);
+        //AddItem(3, 1);
     }
 
     // Update is called once per frame
@@ -83,6 +87,29 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void AddItem(int itemnumber, int itemAmount)
+    {
+        for (int i = 0; i < itemsInInventory.Count; i++)
+        {
+            if (itemsInInventory[i] == null)
+            {
+                TempItem = Instantiate(mainItem, Slots[i].transform);
+                currentItem = TempItem.GetComponent<ItemContent>();
+                currentItem.SetupItem(itemnumber, itemAmount);
+                itemsInInventory.Insert(i, currentItem);
+                break;
+            }
+            else
+            {
+                Debug.Log("Slot Full!");
+            }
+            if(i == 3)
+            {
+                Debug.Log("Inventory Full!");
+            }
+        }
+    }
+
     private void SetSelector(int number)
     {
         slotNumber = number;
@@ -92,5 +119,6 @@ public class Inventory : MonoBehaviour
     public void CloseMenu()
     {
         Ui.SetActive(false);
+        isUiOpen = false;
     }
 }
