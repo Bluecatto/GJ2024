@@ -911,7 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeea433968a191a409ac9af88822c6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  farmland: {fileID: 3136176483958948853, guid: 1435697b61428fd439e7b884222b1e63,
+  farmlandGhostPrefab: {fileID: 3136176483958948853, guid: 1435697b61428fd439e7b884222b1e63,
     type: 3}
   placing: 0
   validFloor:
@@ -920,7 +920,9 @@ MonoBehaviour:
   invalidFloor:
     serializedVersion: 2
     m_Bits: 8
-  plants: []
+  crops:
+  - {fileID: 4580664603171726957, guid: eaf8d491cd0b9b042814b21556b6a1c3, type: 3}
+  - {fileID: 6882333403592990878, guid: 8cdb294d0fe0cf5468c4ee8fc6bdbf95, type: 3}
 --- !u!4 &1071567989
 Transform:
   m_ObjectHideFlags: 0
