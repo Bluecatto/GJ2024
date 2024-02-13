@@ -98,10 +98,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   farmland: {fileID: 3136176483958948853, guid: db577b1a9d74e304bbe0a9c051c1b80a,
     type: 3}
-  validLayer:
-    serializedVersion: 2
-    m_Bits: 1
-  invalidLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  damping: 20
+  damping: 100
