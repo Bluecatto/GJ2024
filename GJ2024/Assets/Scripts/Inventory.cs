@@ -5,9 +5,12 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private GameObject Ui, Selector, mainItem;
-    [SerializeField] private List<GameObject> Slots;
+    [SerializeField] public List<GameObject> Slots;
     private bool isUiOpen = false;
     private int slotNumber = 1;
+
+    public List<int> MaxAmount;
+    private bool canStack;
 
     private GameObject TempItem;
     private ItemContent currentItem;
@@ -15,9 +18,16 @@ public class Inventory : MonoBehaviour
     public List<bool> isSlotOccupied;
 
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        AddItem(4, 16);
+        AddItem(1, 42);
+        AddItem(4, 16);
+    }
     void Start()
     {
-        AddItem(1, 42);
+        //AddItem(1, 42);
         //AddItem(4, 16);
         //AddItem(4, 1);
         //AddItem(2, 6);
@@ -91,29 +101,54 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < itemsInInventory.Count; i++)
         {
-            if (itemsInInventory[i] == null)
+            if (itemsInInventory[i] != null)
             {
-                TempItem = Instantiate(mainItem, Slots[i].transform);
-                currentItem = TempItem.GetComponent<ItemContent>();
-                currentItem.SetupItem(itemnumber, itemAmount);
-                itemsInInventory.Insert(i, currentItem);
-                break;
-            }
-            else
-            {
-                Debug.Log("Slot Full!");
-            }
-            if(i == 3)
-            {
-                Debug.Log("Inventory Full!");
+                if(itemsInInventory[i].ItemNumber == itemnumber && itemsInInventory[i].ItemNumber <= MaxAmount[itemnumber])
+                {
+                    Debug.Log("foundSameitem");
+
+                    //itemsInInventory[i].ItemNumber += itemAmount;
+                    itemsInInventory[i].UpdateItem(itemAmount);
+                    canStack = true;
+                    break;
+                }
             }
         }
+
+        if (!canStack)
+        {
+            for (int i = 0; i < itemsInInventory.Count; i++)
+            {
+                if (itemsInInventory[i] == null)
+                {
+                    TempItem = Instantiate(mainItem, Slots[i].transform);
+                    currentItem = TempItem.GetComponent<ItemContent>();
+                    currentItem.SetupItem(itemnumber, itemAmount);
+                    itemsInInventory.Insert(i, currentItem);
+                    break;
+                }
+                else
+                {
+                    Debug.Log("Slot Full!");
+                }
+                if (i == 3)
+                {
+                    Debug.Log("Inventory Full!");
+                }
+            }
+        }
+        canStack = true;
     }
 
     private void SetSelector(int number)
     {
         slotNumber = number;
         Selector.transform.position = Slots[number - 1].transform.position;
+    }
+
+    public void Tests()
+    {
+        Debug.Log(gameObject.name);
     }
 
     public void CloseMenu()

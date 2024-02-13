@@ -8,6 +8,7 @@ public class ItemContent : MonoBehaviour
 {
     public TextMeshProUGUI itemsAmount;
     public int itemAmount;
+    public int ItemNumber;
     [SerializeField] private List<Sprite> inventoryItemsIcons;
 
     // Start is called before the first frame update
@@ -26,10 +27,17 @@ public class ItemContent : MonoBehaviour
         }
     }
 
-    public void SetupItem(int ItemNumber, int itemAmounts)
+    public void SetupItem(int ItemNumbah, int itemAmounts)
     {
+        ItemNumber = ItemNumbah;
         itemAmount = itemAmounts;
         itemsAmount.text = itemAmount.ToString();
         GetComponent<Image>().sprite = inventoryItemsIcons[ItemNumber];
+    }
+
+    public void UpdateItem(int AmountToAdd)
+    {
+        itemAmount += AmountToAdd;
+        itemsAmount.text = itemAmount.ToString();
     }
 }
