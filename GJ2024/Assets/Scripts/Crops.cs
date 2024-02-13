@@ -21,10 +21,13 @@ public class Crops : MonoBehaviour
     [SerializeField] List<Material> mats;
     [SerializeField] List<int> delay;
 
+    //Billboard
+    private Camera cam;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
 
     // Update is called once per frame
@@ -119,5 +122,13 @@ public class Crops : MonoBehaviour
         isDead = true;
         mesh.material = DeadMat;
         plantLevel = 0;
+    }
+
+
+    private void LateUpdate()
+    {
+        //Testing billboard texture
+        transform.LookAt(cam.transform);
+        transform.Rotate(90, 0, 0);
     }
 }
