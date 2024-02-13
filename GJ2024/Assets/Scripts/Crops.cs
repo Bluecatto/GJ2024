@@ -29,15 +29,6 @@ public class Crops : MonoBehaviour
         inv = GameObject.FindWithTag("DevCube").GetComponent<Inventory>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Harvest();
-        }
-    }
-
     private void FixedUpdate()
     {
         if (!isupgrading && plantLevel <= maxlevel - 1 && !isDead)
@@ -53,7 +44,7 @@ public class Crops : MonoBehaviour
         mesh.material = mats[plantLevel];
         plantLevel++;
         isupgrading = false;
-        if(plantLevel == maxlevel)
+        if (plantLevel == maxlevel)
         {
             Invoke("KillPlant", timeToDie);
         }
@@ -61,7 +52,7 @@ public class Crops : MonoBehaviour
 
     public void Harvest()
     {
-        if(plantLevel == maxlevel)
+        if (plantLevel == maxlevel)
         {
             //1.carrot 2.corn 3.tomato 4.pumpking 5.eggplant
             switch (plantnumber)

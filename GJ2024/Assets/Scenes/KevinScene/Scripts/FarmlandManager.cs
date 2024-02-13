@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class FarmlandManager : MonoBehaviour
@@ -11,11 +10,14 @@ public class FarmlandManager : MonoBehaviour
     [SerializeField] public LayerMask invalidFloor;
     [SerializeField] public GameObject[] crops;
 
+    private Rigidbody player;
+
 
     // Start is called before the first frame update
     void Start()
     {
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        player = GameObject.Find("Player").GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -40,10 +42,15 @@ public class FarmlandManager : MonoBehaviour
                 if (hit.collider.name == "Farmland(Clone)")
                 {
                     FarmlandScript farmland = hit.collider.GetComponent<FarmlandScript>();
-                    if (!farmland.hasPlant)
+                    if (farmland.attachedCrop == null)
                     {
-                        farmland.hasPlant = true;
                         Instantiate(crops[Random.Range(0, crops.Length)], hit.transform);
+                        farmland.attachedCrop = farmland.gameObject.transform.GetChild(0).gameObject;
+                    }
+                    else
+                    {
+                        Crops crop = farmland.attachedCrop.GetComponent<Crops>();
+                        crop.Harvest();
                     }
                 }
             }
