@@ -128,7 +128,7 @@ public class Crops : MonoBehaviour
     private void LateUpdate()
     {
         //Testing billboard texture
-        transform.LookAt(cam.transform);
-        transform.Rotate(90, 0, 0);
+       // transform.LookAt(cam.transform);
+        //transform.Rotate(90, 0, 0);
     }
 }

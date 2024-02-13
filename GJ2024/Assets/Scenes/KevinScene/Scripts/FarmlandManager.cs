@@ -50,7 +50,7 @@ public class FarmlandManager : MonoBehaviour
                     if (!farmland.hasPlant)
                     {
                         farmland.hasPlant = true;
-                        Instantiate(crops[0], hit.transform);
+                        Instantiate(crops[Random.Range(0, crops.Length)], hit.transform);
                     }
                 }
             }
