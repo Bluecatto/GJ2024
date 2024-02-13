@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6882333403592990878
+--- !u!1 &8213092957897661363
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6882333403592990875}
-  - component: {fileID: 6882333403592990874}
-  - component: {fileID: 6882333403592990873}
-  - component: {fileID: 6882333403592990872}
-  - component: {fileID: 6882333403592990879}
+  - component: {fileID: 8213092957897661366}
+  - component: {fileID: 8213092957897661367}
+  - component: {fileID: 8213092957897661364}
+  - component: {fileID: 8213092957897661365}
+  - component: {fileID: 8213092957897661362}
   m_Layer: 0
-  m_Name: Tomato
+  m_Name: Pumking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6882333403592990875
+--- !u!4 &8213092957897661366
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6882333403592990878}
+  m_GameObject: {fileID: 8213092957897661363}
   m_LocalRotation: {x: 0.00000037959836, y: 0.7071071, z: -0.7071065, w: 0.00000039488071}
-  m_LocalPosition: {x: 5.036056, y: 5.065279, z: 2.5253735}
+  m_LocalPosition: {x: 3.3247838, y: 5, z: -4.4442444}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -180}
---- !u!33 &6882333403592990874
+--- !u!33 &8213092957897661367
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6882333403592990878}
+  m_GameObject: {fileID: 8213092957897661363}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &6882333403592990873
+--- !u!23 &8213092957897661364
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6882333403592990878}
+  m_GameObject: {fileID: 8213092957897661363}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 53988d3f7f4f0764fabcda11319e86c7, type: 2}
+  - {fileID: 2100000, guid: 3261a30bcbd7ee64b9d638f4eb345d20, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,13 +85,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6882333403592990872
+--- !u!64 &8213092957897661365
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6882333403592990878}
+  m_GameObject: {fileID: 8213092957897661363}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -99,28 +99,30 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &6882333403592990879
+--- !u!114 &8213092957897661362
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6882333403592990878}
+  m_GameObject: {fileID: 8213092957897661363}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0e38e5428453334cadee2048a7f1a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantnumber: 1
   plantLevel: 0
-  maxlevel: 5
-  canRegrow: 1
-  goBackToLevel: 2
-  mesh: {fileID: 6882333403592990873}
+  maxlevel: 8
+  canRegrow: 0
+  goBackToLevel: 0
+  mesh: {fileID: 8213092957897661364}
   mats:
-  - {fileID: 2100000, guid: 53988d3f7f4f0764fabcda11319e86c7, type: 2}
-  - {fileID: 2100000, guid: 90771ae475e07b94eac039c9e6a66f95, type: 2}
-  - {fileID: 2100000, guid: 8394164b35a841c40a3602791b749745, type: 2}
-  - {fileID: 2100000, guid: a589fcc21b3fcad4386163c978cdcdec, type: 2}
-  - {fileID: 2100000, guid: 36a7f60b75a513d4ba95e2dfb02e7ce0, type: 2}
-  delay: 0200000004000000060000000600000006000000
+  - {fileID: 2100000, guid: 3261a30bcbd7ee64b9d638f4eb345d20, type: 2}
+  - {fileID: 2100000, guid: 3a7c617b724c4404e97e74f884852cef, type: 2}
+  - {fileID: 2100000, guid: 5069e2890bec78a4bb955a35dd060b8d, type: 2}
+  - {fileID: 2100000, guid: db84784c2122fb242b2a5eaf24a5032b, type: 2}
+  - {fileID: 2100000, guid: 43a02c74e71228d44b351f3cfb88729d, type: 2}
+  - {fileID: 2100000, guid: c8cf9db9f9309b64a947f823cbcdcc10, type: 2}
+  - {fileID: 2100000, guid: 22d8bccadbbe3c24fa64fc7cb7236575, type: 2}
+  - {fileID: 2100000, guid: 0f8b1fe2e3b7558489e25b0704532204, type: 2}
+  delay: 0200000002000000020000000200000002000000020000000200000002000000

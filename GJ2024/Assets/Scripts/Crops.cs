@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Crops : MonoBehaviour
 {
+    [Header("1.carrot 2.corn 3.tomato 4.pumpking 5.eggplant")]
+    public int plantnumber = 1;
+
     public int plantLevel = 0;
     public int maxlevel = 5;
 
@@ -58,7 +61,42 @@ public class Crops : MonoBehaviour
     {
         if(plantLevel == maxlevel)
         {
-            // add to inventory
+            //1.carrot 2.corn 3.tomato 4.pumpking 5.eggplant
+            switch (plantnumber)
+            {
+                case 1:
+                    {
+                        int i = PlayerPrefs.GetInt("Carrot");
+                        PlayerPrefs.SetInt("Carrot", i + Random.Range(3, 5));
+                        break;
+                    }
+                case 2:
+                    {
+                        int i = PlayerPrefs.GetInt("Corn");
+                        PlayerPrefs.SetInt("Corn", i + Random.Range(3, 5));
+                        break;
+                    }
+                case 3:
+                    {
+                        int i = PlayerPrefs.GetInt("Tomato");
+                        PlayerPrefs.SetInt("Tomato", i + Random.Range(3, 5));
+                        break;
+                    }
+                case 4:
+                    {
+                        int i = PlayerPrefs.GetInt("Pumpking");
+                        PlayerPrefs.SetInt("Pumpking", i + 3);
+                        break;
+                    }
+                case 5:
+                    {
+                        int i = PlayerPrefs.GetInt("Eggplant");
+                        PlayerPrefs.SetInt("Eggplant", i + Random.Range(3, 5));
+                        break;
+                    }
+                default:
+                    break;
+            }
 
             if (canRegrow)
             {
@@ -67,8 +105,12 @@ public class Crops : MonoBehaviour
             }
             else
             {
-                Destroy(this.gameObject, 1f);
+                Destroy(this.gameObject);
             }
+        }
+        else
+        {
+            Destroy(this.gameObject);
         }
     }
 }
