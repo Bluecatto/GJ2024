@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class FarmlandManager : MonoBehaviour
 {
-    [SerializeField] private GameObject farmland;
+    [SerializeField] private GameObject farmlandGhostPrefab;
     private Camera cam;
     public bool placing;
     [SerializeField] public LayerMask validFloor;
     [SerializeField] public LayerMask invalidFloor;
-    [SerializeField] public GameObject[] plants;
+    [SerializeField] public GameObject[] crops;
 
 
     // Start is called before the first frame update
@@ -32,10 +32,28 @@ public class FarmlandManager : MonoBehaviour
                 if (hit.rigidbody != null)
                 {
                     hit.point = new Vector3(hit.point.x, -1.2f, hit.point.z);
-                    Instantiate(farmland, hit.point, Quaternion.identity);
+                    Instantiate(farmlandGhostPrefab, hit.point, Quaternion.identity);
+                }
+            }
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+            var ray = cam.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.name == "Farmland(Clone)")
+                {
+                    FarmlandScript farmland = hit.collider.GetComponent<FarmlandScript>();
+                    if (!farmland.hasPlant)
+                    {
+                        farmland.hasPlant = true;
+                        Instantiate(crops[0], hit.transform);
+                    }
                 }
             }
         }
     }
-
 }
