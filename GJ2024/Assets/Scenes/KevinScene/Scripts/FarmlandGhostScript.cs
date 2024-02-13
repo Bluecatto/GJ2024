@@ -1,3 +1,4 @@
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 public class FarmlandGhostScript : MonoBehaviour
 {
@@ -35,7 +36,7 @@ public class FarmlandGhostScript : MonoBehaviour
                 if (hit.rigidbody != null)
                 {
                     hit.point = new Vector3(hit.point.x, -1.2f, hit.point.z);
-                    transform.position = Vector3.Lerp(transform.position, hit.point, damping * Time.deltaTime);
+                    transform.position = Vector3.Lerp(transform.position, RoundVector(hit.point, 0.5f), damping * Time.deltaTime);
                 }
             }
 
@@ -52,7 +53,7 @@ public class FarmlandGhostScript : MonoBehaviour
     {
         if (!hasCrop)
         {
-            RaycastHit[] hit = Physics.BoxCastAll(transform.position, new Vector3(1.1f, 0f, 1.1f), Vector3.down, Quaternion.identity, 0.25f, manager.invalidFloor);
+            RaycastHit[] hit = Physics.BoxCastAll(RoundVector(transform.position, 0.5f), new Vector3(0.99f, 0f, 0.99f), Vector3.down, Quaternion.identity, 0.25f, manager.invalidFloor);
             if (hit.Length != 0)
             {
                 render.material.color = Color.red;
@@ -66,9 +67,16 @@ public class FarmlandGhostScript : MonoBehaviour
         }
         else
         {
-            Instantiate(farmland, transform.position, Quaternion.identity);
+            Instantiate(farmland, RoundVector(transform.position, 0.5f), Quaternion.identity);
             manager.placing = false;
             Destroy(gameObject);
         }
+    }
+
+    private Vector3 RoundVector(Vector3 vector, float multiplier)
+    {
+        return new Vector3(Mathf.Round(multiplier * vector.x) / multiplier,
+                           vector.y,
+                           Mathf.Round(multiplier * vector.z) / multiplier);
     }
 }
