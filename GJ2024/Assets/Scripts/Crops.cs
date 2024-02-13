@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Crops : MonoBehaviour
 {
-    [Header("1. carrot 2.corn 3.tomato")]
-    public int vegetable = 1;
-
     public int plantLevel = 0;
     public int maxlevel = 5;
 
     public bool canRegrow = true;
     public int goBackToLevel = 3;
+
+    private int randomDelay;
 
     public MeshRenderer mesh;
     private bool isupgrading = false;
@@ -27,6 +26,11 @@ public class Crops : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //temporary
+        Debug.Log(Random.Range(1, 10) / 100);
+
+        randomDelay = Random.Range(1, 10) % 100;
+
         if (Input.GetKeyDown(KeyCode.K))
         {
             Harvest();
@@ -38,7 +42,8 @@ public class Crops : MonoBehaviour
         if (!isupgrading && plantLevel <= maxlevel - 1)
         {
             isupgrading = true;
-            Invoke("UpgradeCrop", delay[plantLevel] + Random.Range(0.1f, 5f));
+            Debug.Log(delay[plantLevel]);
+            Invoke("UpgradeCrop", delay[plantLevel]);
         }
     }
 
@@ -55,28 +60,6 @@ public class Crops : MonoBehaviour
         {
             // add to inventory
 
-            switch (vegetable)
-            {
-                case 1:
-                    {
-                        int i = PlayerPrefs.GetInt("Carrots");
-                        PlayerPrefs.SetInt("Carrots", i + Random.Range(1, 4));
-                        break;
-                    }
-                case 2:
-                    {
-                        //add corn
-                        break;
-                    }
-                case 3:
-                    {
-                        //add tomato
-                        break;
-                    }
-                default:
-                    break;
-            }
-
             if (canRegrow)
             {
                 plantLevel = goBackToLevel;
@@ -84,12 +67,8 @@ public class Crops : MonoBehaviour
             }
             else
             {
-                Destroy(this.gameObject);
+                Destroy(this.gameObject, 1f);
             }
-        }
-        else
-        {
-            Destroy(this.gameObject);
         }
     }
 }
