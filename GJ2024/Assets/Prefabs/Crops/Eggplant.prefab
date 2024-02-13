@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4580664603171726957
+--- !u!1 &5921812619848581916
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4580664603171726952}
-  - component: {fileID: 4580664603171726953}
-  - component: {fileID: 4580664603171726954}
-  - component: {fileID: 4580664603171726955}
-  - component: {fileID: 4580664603171726956}
+  - component: {fileID: 5921812619848581905}
+  - component: {fileID: 5921812619848581904}
+  - component: {fileID: 5921812619848581919}
+  - component: {fileID: 5921812619848581918}
+  - component: {fileID: 5921812619848581917}
   m_Layer: 0
-  m_Name: Corn
+  m_Name: Eggplant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4580664603171726952
+--- !u!4 &5921812619848581905
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4580664603171726957}
+  m_GameObject: {fileID: 5921812619848581916}
   m_LocalRotation: {x: 0.00000037959836, y: 0.7071071, z: -0.7071065, w: 0.00000039488071}
-  m_LocalPosition: {x: -4.3595924, y: 5.0000005, z: 1.6143583}
+  m_LocalPosition: {x: -4.37, y: 5, z: -4.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -180}
---- !u!33 &4580664603171726953
+--- !u!33 &5921812619848581904
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4580664603171726957}
+  m_GameObject: {fileID: 5921812619848581916}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4580664603171726954
+--- !u!23 &5921812619848581919
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4580664603171726957}
+  m_GameObject: {fileID: 5921812619848581916}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3754ee20e89993a428576545332fd453, type: 2}
+  - {fileID: 2100000, guid: dacbebc91ef795c4f89e7c1afd90b6e8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,13 +85,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4580664603171726955
+--- !u!64 &5921812619848581918
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4580664603171726957}
+  m_GameObject: {fileID: 5921812619848581916}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -99,28 +99,31 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &4580664603171726956
+--- !u!114 &5921812619848581917
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4580664603171726957}
+  m_GameObject: {fileID: 5921812619848581916}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0e38e5428453334cadee2048a7f1a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   plantnumber: 1
-  DeadMat: {fileID: 2100000, guid: f171bd80423649648b161ce0bfdc7473, type: 2}
+  DeadMat: {fileID: 2100000, guid: 4cc896f8f0411d84c8ded1e5e7880ef2, type: 2}
   plantLevel: 0
-  maxlevel: 3
-  canRegrow: 0
+  maxlevel: 6
+  canRegrow: 1
   isDead: 0
-  goBackToLevel: 0
-  mesh: {fileID: 4580664603171726954}
+  goBackToLevel: 3
+  mesh: {fileID: 5921812619848581919}
   mats:
-  - {fileID: 2100000, guid: 3754ee20e89993a428576545332fd453, type: 2}
-  - {fileID: 2100000, guid: e56f837c6ed870c479a62caaa302a574, type: 2}
-  - {fileID: 2100000, guid: 0e39a350de253f24fbe0c6499f6c8ad4, type: 2}
-  delay: 020000000400000006000000
+  - {fileID: 2100000, guid: dacbebc91ef795c4f89e7c1afd90b6e8, type: 2}
+  - {fileID: 2100000, guid: 0ef4bd4da2066d84ca1b2392bd866bd9, type: 2}
+  - {fileID: 2100000, guid: f4c894dafbc4f4f448031d7fdd3cf7ab, type: 2}
+  - {fileID: 2100000, guid: 6e28bf0262ee0f2438e63d7ff08667cc, type: 2}
+  - {fileID: 2100000, guid: 9d5da7ecf4e865247bfe16b301c14d5c, type: 2}
+  - {fileID: 2100000, guid: 5e42b584e8264dd4a8ac3aff600d3062, type: 2}
+  delay: 020000000200000002000000020000000200000002000000

@@ -8,10 +8,16 @@ public class Inventory : MonoBehaviour
     [SerializeField] private List<GameObject> Slots;
     private bool isUiOpen = false;
     private int slotNumber = 1;
+    [SerializeField] private List<GameObject> hotBarItems;
+    [SerializeField] private List<bool> hotBaroccupied;
+    [SerializeField] private List<GameObject> hotBarItemAmount;
+
+    [SerializeField] private List<GameObject> inventoryItemsIcons;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        hotBarItems[0] = inventoryItemsIcons[0];
     }
 
     // Update is called once per frame

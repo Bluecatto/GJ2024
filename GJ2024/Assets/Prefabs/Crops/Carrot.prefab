@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4580664603171726957
+--- !u!1 &5318885540248326590
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4580664603171726952}
-  - component: {fileID: 4580664603171726953}
-  - component: {fileID: 4580664603171726954}
-  - component: {fileID: 4580664603171726955}
-  - component: {fileID: 4580664603171726956}
+  - component: {fileID: 5318885540248326587}
+  - component: {fileID: 5318885540248326586}
+  - component: {fileID: 5318885540248326585}
+  - component: {fileID: 5318885540248326584}
+  - component: {fileID: 5318885540248326591}
   m_Layer: 0
-  m_Name: Corn
+  m_Name: Carrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4580664603171726952
+--- !u!4 &5318885540248326587
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4580664603171726957}
+  m_GameObject: {fileID: 5318885540248326590}
   m_LocalRotation: {x: 0.00000037959836, y: 0.7071071, z: -0.7071065, w: 0.00000039488071}
-  m_LocalPosition: {x: -4.3595924, y: 5.0000005, z: 1.6143583}
+  m_LocalPosition: {x: -6.175216, y: 5, z: -4.444255}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -180}
---- !u!33 &4580664603171726953
+--- !u!33 &5318885540248326586
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4580664603171726957}
+  m_GameObject: {fileID: 5318885540248326590}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4580664603171726954
+--- !u!23 &5318885540248326585
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4580664603171726957}
+  m_GameObject: {fileID: 5318885540248326590}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3754ee20e89993a428576545332fd453, type: 2}
+  - {fileID: 2100000, guid: a083dd93ea3a1d740a93f8d39dcd1bc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,13 +85,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4580664603171726955
+--- !u!64 &5318885540248326584
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4580664603171726957}
+  m_GameObject: {fileID: 5318885540248326590}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -99,28 +99,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &4580664603171726956
+--- !u!114 &5318885540248326591
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4580664603171726957}
+  m_GameObject: {fileID: 5318885540248326590}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0e38e5428453334cadee2048a7f1a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   plantnumber: 1
-  DeadMat: {fileID: 2100000, guid: f171bd80423649648b161ce0bfdc7473, type: 2}
+  DeadMat: {fileID: 2100000, guid: eb689e1f7bd930a4db30d8cd91720467, type: 2}
   plantLevel: 0
   maxlevel: 3
   canRegrow: 0
   isDead: 0
   goBackToLevel: 0
-  mesh: {fileID: 4580664603171726954}
+  mesh: {fileID: 5318885540248326585}
   mats:
-  - {fileID: 2100000, guid: 3754ee20e89993a428576545332fd453, type: 2}
-  - {fileID: 2100000, guid: e56f837c6ed870c479a62caaa302a574, type: 2}
-  - {fileID: 2100000, guid: 0e39a350de253f24fbe0c6499f6c8ad4, type: 2}
+  - {fileID: 2100000, guid: a083dd93ea3a1d740a93f8d39dcd1bc2, type: 2}
+  - {fileID: 2100000, guid: 988f8ba53c2c8dc40b896e9cc992cf80, type: 2}
+  - {fileID: 2100000, guid: e3dc4a47216be7743af6f3abf1371f97, type: 2}
   delay: 020000000400000006000000
