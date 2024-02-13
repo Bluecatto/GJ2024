@@ -133,3 +133,4 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 988f8ba53c2c8dc40b896e9cc992cf80, type: 2}
   - {fileID: 2100000, guid: e3dc4a47216be7743af6f3abf1371f97, type: 2}
   delay: 020000000400000006000000
+  inv: {fileID: 0}

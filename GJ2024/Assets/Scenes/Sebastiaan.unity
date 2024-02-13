@@ -1083,50 +1083,14 @@ RectTransform:
   - {fileID: 646159277}
   - {fileID: 1813200504}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &883493170
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 883493171}
-  m_Layer: 5
-  m_Name: Slot3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &883493171
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 883493170}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 510781518}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -240}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!1001 &1018415912
+--- !u!1001 &845178857
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1141,7 +1105,7 @@ PrefabInstance:
     - target: {fileID: 5318885540248326587, guid: b9ebc31398e90cc4cac3d91e3690fe42,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.45
+      value: 4.12
       objectReference: {fileID: 0}
     - target: {fileID: 5318885540248326587, guid: b9ebc31398e90cc4cac3d91e3690fe42,
         type: 3}
@@ -1151,7 +1115,7 @@ PrefabInstance:
     - target: {fileID: 5318885540248326587, guid: b9ebc31398e90cc4cac3d91e3690fe42,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.62
+      value: -3.68
       objectReference: {fileID: 0}
     - target: {fileID: 5318885540248326587, guid: b9ebc31398e90cc4cac3d91e3690fe42,
         type: 3}
@@ -1193,8 +1157,59 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carrot
       objectReference: {fileID: 0}
+    - target: {fileID: 5318885540248326591, guid: b9ebc31398e90cc4cac3d91e3690fe42,
+        type: 3}
+      propertyPath: delay.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318885540248326591, guid: b9ebc31398e90cc4cac3d91e3690fe42,
+        type: 3}
+      propertyPath: delay.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318885540248326591, guid: b9ebc31398e90cc4cac3d91e3690fe42,
+        type: 3}
+      propertyPath: delay.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9ebc31398e90cc4cac3d91e3690fe42, type: 3}
+--- !u!1 &883493170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 883493171}
+  m_Layer: 5
+  m_Name: Slot3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &883493171
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883493170}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 510781518}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -240}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1151378916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,7 +1616,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1813200503
 GameObject:
@@ -2050,6 +2065,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DevCube
       objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156131, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: m_TagString
+      value: DevCube
+      objectReference: {fileID: 0}
     - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
         type: 3}
       propertyPath: Ui
@@ -2085,10 +2105,40 @@ PrefabInstance:
       propertyPath: Slots.Array.data[4]
       value: 
       objectReference: {fileID: 696793970}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.data[0]
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.data[1]
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.data[2]
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.data[3]
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.data[4]
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 5679003807824156136, guid: 344cef6df9ab290419afb882d40e6b51,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5679003807824156136, guid: 344cef6df9ab290419afb882d40e6b51,
         type: 3}
