@@ -10,7 +10,6 @@ public class Inventory : MonoBehaviour
     private int slotNumber = 1;
 
     public List<int> MaxAmount;
-    private bool canStack;
 
     private GameObject TempItem;
     private ItemContent currentItem;
@@ -18,20 +17,12 @@ public class Inventory : MonoBehaviour
     public List<bool> isSlotOccupied;
 
     // Start is called before the first frame update
-
-    private void Awake()
-    {
-        AddItem(4, 16);
-        AddItem(1, 42);
-        AddItem(4, 16);
-    }
     void Start()
     {
-        //AddItem(1, 42);
-        //AddItem(4, 16);
-        //AddItem(4, 1);
-        //AddItem(2, 6);
-        //AddItem(3, 1);
+        //AddItem(4, 62);
+        AddItem(1, 62);
+        //AddItem(3, 62);
+        //AddItem(2, 62);
     }
 
     // Update is called once per frame
@@ -92,7 +83,6 @@ public class Inventory : MonoBehaviour
             else
             {
                 SetSelector(slotNumber - 1);
-
             }
         }
     }
@@ -103,52 +93,51 @@ public class Inventory : MonoBehaviour
         {
             if (itemsInInventory[i] != null)
             {
-                if(itemsInInventory[i].ItemNumber == itemnumber && itemsInInventory[i].ItemNumber <= MaxAmount[itemnumber])
+                if(itemsInInventory[i].ItemNumber == itemnumber)
                 {
-                    Debug.Log("foundSameitem");
+                    int total = itemsInInventory[i].itemAmount + itemAmount;
 
-                    //itemsInInventory[i].ItemNumber += itemAmount;
-                    itemsInInventory[i].UpdateItem(itemAmount);
-                    canStack = true;
-                    break;
+                    if (total <= MaxAmount[itemnumber])
+                    {
+                        itemsInInventory[i].UpdateItem(itemAmount);
+                        return;
+                    }
+                    else
+                    {
+                        itemsInInventory[i].UpdateItem(MaxAmount[itemnumber]);
+                        int leftOver = total - MaxAmount[itemnumber];
+                        AddItem(itemnumber, leftOver);
+                        return;
+                    }
                 }
             }
         }
 
-        if (!canStack)
+        for (int i = 0; i < itemsInInventory.Count; i++)
         {
-            for (int i = 0; i < itemsInInventory.Count; i++)
+            if (itemsInInventory[i] == null)
             {
-                if (itemsInInventory[i] == null)
-                {
-                    TempItem = Instantiate(mainItem, Slots[i].transform);
-                    currentItem = TempItem.GetComponent<ItemContent>();
-                    currentItem.SetupItem(itemnumber, itemAmount);
-                    itemsInInventory.Insert(i, currentItem);
-                    break;
-                }
-                else
-                {
-                    Debug.Log("Slot Full!");
-                }
-                if (i == 3)
-                {
-                    Debug.Log("Inventory Full!");
-                }
+                TempItem = Instantiate(mainItem, Slots[i].transform);
+                currentItem = TempItem.GetComponent<ItemContent>();
+                currentItem.SetupItem(itemnumber, itemAmount);
+                itemsInInventory.Insert(i, currentItem);
+                break;
+            }
+            else
+            {
+                Debug.Log("Slot Full!");
+            }
+            if (i == 3)
+            {
+                Debug.Log("Inventory Full!");
             }
         }
-        canStack = true;
     }
 
     private void SetSelector(int number)
     {
         slotNumber = number;
         Selector.transform.position = Slots[number - 1].transform.position;
-    }
-
-    public void Tests()
-    {
-        Debug.Log(gameObject.name);
     }
 
     public void CloseMenu()
