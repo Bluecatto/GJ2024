@@ -21,12 +21,12 @@ public class Crops : MonoBehaviour
     [SerializeField] List<Material> mats;
     [SerializeField] List<int> delay;
 
-    [SerializeField] private Inventory inv;
+    public Inventory inv;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        inv = GameObject.FindWithTag("DevCube").GetComponent<Inventory>();
     }
 
     // Update is called once per frame
@@ -68,7 +68,7 @@ public class Crops : MonoBehaviour
             {
                 case 1:
                     {
-                        inv.AddItem(1, Random.Range(2, 5));
+                        inv.AddItem(1, 3);
                         break;
                     }
                 case 2:

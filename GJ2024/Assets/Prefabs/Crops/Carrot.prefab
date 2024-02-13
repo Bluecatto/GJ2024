@@ -115,6 +115,7 @@ MonoBehaviour:
   DeadMat: {fileID: 2100000, guid: eb689e1f7bd930a4db30d8cd91720467, type: 2}
   plantLevel: 0
   maxlevel: 3
+  timeToDie: 5
   canRegrow: 0
   isDead: 0
   goBackToLevel: 0
@@ -124,3 +125,4 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 988f8ba53c2c8dc40b896e9cc992cf80, type: 2}
   - {fileID: 2100000, guid: e3dc4a47216be7743af6f3abf1371f97, type: 2}
   delay: 020000000400000006000000
+  inv: {fileID: 0}
