@@ -1,15 +1,16 @@
-using Unity.Burst.CompilerServices;
 using UnityEngine;
-public class FarmlandGhostScript : MonoBehaviour
+public class BlueprintScript : MonoBehaviour
 {
     private FarmlandManager manager;
-    [SerializeField] GameObject farmland;
     private bool hasCrop = false;
     private Camera cam;
-    private Vector3 mousePos;
     private bool isValid;
     private Renderer render;
+
+    [SerializeField] GameObject buildingType;
     [SerializeField] private float damping;
+    [SerializeField] private float gridSize;
+    [SerializeField] private float yOffset;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,12 @@ public class FarmlandGhostScript : MonoBehaviour
     {
         if (!hasCrop)
         {
+            if (Input.GetMouseButtonDown(1))
+            {
+                manager.placing = false;
+                Destroy(gameObject);
+            }
+
             //mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
             //mousePos.y = 0f;
             //transform.position = Vector3.Lerp(transform.position, hit.point, 10 * Time.deltaTime);
@@ -35,8 +42,8 @@ public class FarmlandGhostScript : MonoBehaviour
             {
                 if (hit.rigidbody != null)
                 {
-                    hit.point = new Vector3(hit.point.x, -1.2f, hit.point.z);
-                    transform.position = Vector3.Lerp(transform.position, RoundVector(hit.point, 0.5f), damping * Time.deltaTime);
+                    hit.point = new Vector3(hit.point.x, yOffset, hit.point.z);
+                    transform.position = Vector3.Lerp(transform.position, RoundVector(hit.point, 1/gridSize), damping * Time.deltaTime);
                 }
             }
 
@@ -53,7 +60,12 @@ public class FarmlandGhostScript : MonoBehaviour
     {
         if (!hasCrop)
         {
-            RaycastHit[] hit = Physics.BoxCastAll(RoundVector(transform.position, 0.5f), new Vector3(0.99f, 0f, 0.99f), Vector3.down, Quaternion.identity, 0.25f, manager.invalidFloor);
+            RaycastHit[] hit = Physics.BoxCastAll(RoundVector(transform.position, 1 / gridSize),
+                                                  new Vector3(transform.localScale.x * 0.5f - 0.01f, 10f, transform.localScale.z * 0.5f - 0.01f),
+                                                  Vector3.down,
+                                                  Quaternion.identity,
+                                                  Mathf.Infinity,
+                                                  manager.invalidFloor);
             if (hit.Length != 0)
             {
                 render.material.color = Color.red;
@@ -67,7 +79,7 @@ public class FarmlandGhostScript : MonoBehaviour
         }
         else
         {
-            Instantiate(farmland, RoundVector(transform.position, 0.5f), Quaternion.identity);
+            Instantiate(buildingType, RoundVector(transform.position, 1 / gridSize), Quaternion.identity);
             manager.placing = false;
             Destroy(gameObject);
         }

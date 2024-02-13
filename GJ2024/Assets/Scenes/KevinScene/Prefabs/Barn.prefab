@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 9192828608963346437}
   - component: {fileID: 157975557186475894}
   - component: {fileID: 5574078211243533343}
-  - component: {fileID: 6784309363043231788}
-  m_Layer: 2
-  m_Name: FarmlandGhost
+  - component: {fileID: 156238799046211062}
+  m_Layer: 3
+  m_Name: Barn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.00000046193594, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 4, y: 3, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e353666af7228f2408e982baf36cbed4, type: 2}
+  - {fileID: 2100000, guid: a65b2d0bd70329f4c80fabfa5502419c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,20 +84,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6784309363043231788
-MonoBehaviour:
+--- !u!65 &156238799046211062
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3136176483958948853}
+  m_Material: {fileID: 13400000, guid: 04a7df98d974a4b4dad5d1d7dca99457, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0e42e7fa9516ba4692a43f6085b6b86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildingType: {fileID: 3136176483958948853, guid: db577b1a9d74e304bbe0a9c051c1b80a,
-    type: 3}
-  damping: 75
-  gridSize: 2
-  yOffset: -1.2
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

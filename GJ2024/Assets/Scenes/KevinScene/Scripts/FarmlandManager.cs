@@ -1,8 +1,10 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class FarmlandManager : MonoBehaviour
 {
     [SerializeField] private GameObject farmlandGhostPrefab;
+    [SerializeField] private GameObject barnGhostPrefab;
     private Camera cam;
     public bool placing;
     [SerializeField] public LayerMask validFloor;
@@ -19,22 +21,13 @@ public class FarmlandManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.R) && !placing)
+        if (Input.GetKey(KeyCode.R))
         {
-            placing = true;
-            //Instantiate(farmland);
-
-            RaycastHit hit;
-            var ray = cam.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, validFloor))
-            {
-                if (hit.rigidbody != null)
-                {
-                    hit.point = new Vector3(hit.point.x, -1.2f, hit.point.z);
-                    Instantiate(farmlandGhostPrefab, hit.point, Quaternion.identity);
-                }
-            }
+            SpawnThing(farmlandGhostPrefab);
+        }
+        if (Input.GetKey(KeyCode.T))
+        {
+            SpawnThing(barnGhostPrefab);
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -54,6 +47,24 @@ public class FarmlandManager : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+    private void SpawnThing(GameObject prefab)
+    {
+        if (!placing)
+        {
+            RaycastHit hit;
+            var ray = cam.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, validFloor))
+            {
+                if (hit.rigidbody != null)
+                {
+                    hit.point = new Vector3(hit.point.x, -1.2f, hit.point.z);
+                    Instantiate(prefab, hit.point, Quaternion.identity);
+                }
+            }
+            placing = true;
         }
     }
 }
