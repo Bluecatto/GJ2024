@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 71273198}
   - component: {fileID: 71273197}
   m_Layer: 2
-  m_Name: Capsule
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,8 +182,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!136 &71273199
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -191,7 +191,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71273196}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 04a7df98d974a4b4dad5d1d7dca99457, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -327,7 +327,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 557984794}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 04a7df98d974a4b4dad5d1d7dca99457, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -417,6 +417,7 @@ GameObject:
   - component: {fileID: 705507995}
   - component: {fileID: 705507994}
   - component: {fileID: 705507996}
+  - component: {fileID: 705507997}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -446,9 +447,9 @@ Light:
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.05
+    m_Bias: 3.45
     m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NearPlane: 0.1
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -479,7 +480,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6570
+  m_ColorTemperature: 6702
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -495,7 +496,7 @@ Transform:
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -524,6 +525,19 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &705507997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705507993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c5a503bacca60409c4cdeb0fc17d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cycleSpeed: 10
 --- !u!1 &948733342
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,7 +565,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948733342}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f96e36a921275b648a385a0a6a7d0989, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -717,8 +731,8 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
-  orthographic: 1
+  field of view: 30
+  orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -848,7 +862,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972837727}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 04a7df98d974a4b4dad5d1d7dca99457, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -958,6 +972,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   farmlandGhostPrefab: {fileID: 3136176483958948853, guid: 1435697b61428fd439e7b884222b1e63,
     type: 3}
+  barnGhostPrefab: {fileID: 3136176483958948853, guid: 1f2c68bd332a7744ea857ab63af2d95d,
+    type: 3}
   placing: 0
   validFloor:
     serializedVersion: 2
@@ -1040,7 +1056,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449097215}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 04a7df98d974a4b4dad5d1d7dca99457, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1173,7 +1189,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136259832}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 04a7df98d974a4b4dad5d1d7dca99457, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

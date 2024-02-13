@@ -5,4 +5,5 @@ using UnityEngine;
 public class FarmlandScript : MonoBehaviour
 {
     public bool hasPlant;
+    public GameObject attachedCrop;
 }

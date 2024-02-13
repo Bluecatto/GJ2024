@@ -22,22 +22,15 @@ public class Crops : MonoBehaviour
     [SerializeField] List<int> delay;
 
     //Billboard
-    private Camera cam;
+    //private Camera cam;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
-    }
+    //void Start()
+    //{
+    //    cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+    //}
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Harvest();
-        }
-    }
+    // 
 
     private void FixedUpdate()
     {
@@ -125,10 +118,10 @@ public class Crops : MonoBehaviour
     }
 
 
-    private void LateUpdate()
-    {
+    //private void LateUpdate()
+    //{
         //Testing billboard texture
        // transform.LookAt(cam.transform);
         //transform.Rotate(90, 0, 0);
-    }
+    //}
 }
