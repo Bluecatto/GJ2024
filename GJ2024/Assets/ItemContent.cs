@@ -9,6 +9,7 @@ public class ItemContent : MonoBehaviour
     public TextMeshProUGUI itemsAmount;
     public int itemAmount;
     public int ItemNumber;
+    [Header("1.carrot 2.corn 3.tomato 4.pumpking 5.eggplant")]
     [SerializeField] private List<Sprite> inventoryItemsIcons;
 
     // Start is called before the first frame update

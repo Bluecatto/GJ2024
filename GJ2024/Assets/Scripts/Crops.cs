@@ -68,31 +68,27 @@ public class Crops : MonoBehaviour
             {
                 case 1:
                     {
-                        inv.AddItem(1, 3);
+                        inv.AddItem(1, Random.Range(2, 5));
                         break;
                     }
                 case 2:
                     {
-                        int i = PlayerPrefs.GetInt("Corn");
-                        PlayerPrefs.SetInt("Corn", i + Random.Range(3, 5));
+                        inv.AddItem(2, Random.Range(3, 5));
                         break;
                     }
                 case 3:
                     {
-                        int i = PlayerPrefs.GetInt("Tomato");
-                        PlayerPrefs.SetInt("Tomato", i + Random.Range(3, 5));
+                        inv.AddItem(3, Random.Range(4, 7));
                         break;
                     }
                 case 4:
                     {
-                        int i = PlayerPrefs.GetInt("Pumpking");
-                        PlayerPrefs.SetInt("Pumpking", i + 3);
+                        inv.AddItem(4, Random.Range(1, 3));
                         break;
                     }
                 case 5:
                     {
-                        int i = PlayerPrefs.GetInt("Eggplant");
-                        PlayerPrefs.SetInt("Eggplant", i + Random.Range(3, 5));
+                        inv.AddItem(5, Random.Range(1, 4));
                         break;
                     }
                 default:
