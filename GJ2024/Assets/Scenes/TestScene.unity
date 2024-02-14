@@ -4919,6 +4919,16 @@ MonoBehaviour:
   - {fileID: 4580664603171726957, guid: eaf8d491cd0b9b042814b21556b6a1c3, type: 3}
   - {fileID: 8213092957897661363, guid: bb72b43f3b013814aa259f662d0ef9a3, type: 3}
   - {fileID: 5921812619848581916, guid: f984ed2852899164fa13c96cf76b7b25, type: 3}
+  crop: {fileID: 0}
+  farmlandGhostPrefab: {fileID: 3136176483958948853, guid: 1435697b61428fd439e7b884222b1e63,
+    type: 3}
+  placing: 0
+  validFloor:
+    serializedVersion: 2
+    m_Bits: 0
+  invalidFloor:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &810131427
 GameObject:
   m_ObjectHideFlags: 0

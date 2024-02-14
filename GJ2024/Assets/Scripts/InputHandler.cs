@@ -6,7 +6,8 @@ public class InputHandler : MonoBehaviour
 {
     public Inventory inventory;
     public List<GameObject> crops;
-    private GameObject crop;
+    public GameObject crop;
+    public FarmlandManager farm;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,14 @@ public class InputHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (inventory.itemsInInventory[inventory.slotNumber - 1] != null)
+        {
+            if (inventory.itemsInInventory[inventory.slotNumber - 1].ItemNumber == 17)
+            {
+
+            }
+        }
+
         //leftclick
         if (Input.GetMouseButtonDown(0))
         {
@@ -99,7 +108,6 @@ public class InputHandler : MonoBehaviour
                 if (!farmland.hasPlant)
                 {
                     farmland.hasPlant = true;
-                    //inventory.itemsInInventory[inventory.slotNumber - 1].itemAmount--;
                     inventory.itemsInInventory[inventory.slotNumber - 1].UpdateItem(-1);
                     crop = Instantiate(crops[seed], hit.transform);
                     farmland.attachedCrop = crop;
