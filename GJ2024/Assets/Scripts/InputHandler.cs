@@ -6,6 +6,7 @@ public class InputHandler : MonoBehaviour
 {
     public Inventory inventory;
     public List<GameObject> crops;
+    private GameObject crop;
 
     // Start is called before the first frame update
     void Start()
@@ -19,8 +20,6 @@ public class InputHandler : MonoBehaviour
         //leftclick
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log(inventory.itemsInInventory[inventory.slotNumber - 1].ItemNumber);
-
             if(inventory.itemsInInventory[inventory.slotNumber - 1] != null)
             {
                 switch (inventory.itemsInInventory[inventory.slotNumber - 1].ItemNumber)
@@ -59,7 +58,31 @@ public class InputHandler : MonoBehaviour
         //rightclick
         if (Input.GetMouseButtonDown(1))
         {
-            Debug.Log(inventory.itemInSlot);
+            RaycastHit hit;
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.tag == "FarmLand")
+                {
+                    FarmlandScript farmland = hit.collider.GetComponent<FarmlandScript>();
+                    if (farmland.hasPlant)
+                    {
+                        Crops crop = farmland.attachedCrop.GetComponent<Crops>();
+                        crop.Harvest();
+
+                        if (!crop.canRegrow)
+                        {
+                            farmland.hasPlant = false;
+                        }
+
+                        if (crop.isDead)
+                        {
+                            farmland.hasPlant = false;
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -73,17 +96,13 @@ public class InputHandler : MonoBehaviour
             if (hit.collider.tag == "FarmLand")
             {
                 FarmlandScript farmland = hit.collider.GetComponent<FarmlandScript>();
-                if (farmland.attachedCrop == null)
+                if (!farmland.hasPlant)
                 {
-                    Instantiate(crops[seed], hit.transform);
-                    farmland.attachedCrop = farmland.gameObject.transform.GetChild(0).gameObject;
-                }
-                else
-                {
-                    Crops crop = farmland.attachedCrop.GetComponent<Crops>();
-                    crop.Harvest();
                     farmland.hasPlant = true;
-                    Instantiate(crops[Random.Range(0, crops.Count)], hit.transform);
+                    //inventory.itemsInInventory[inventory.slotNumber - 1].itemAmount--;
+                    inventory.itemsInInventory[inventory.slotNumber - 1].UpdateItem(-1);
+                    crop = Instantiate(crops[seed], hit.transform);
+                    farmland.attachedCrop = crop;
                 }
             }
         }

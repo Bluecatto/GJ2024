@@ -28,6 +28,7 @@ public class Inventory : MonoBehaviour
         AddItem(11, 1);
         AddItem(17, 1);
         AddItem(14, 1);
+        AddItem(9, 8);
     }
 
     // Update is called once per frame

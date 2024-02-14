@@ -27,10 +27,10 @@ public class FarmlandManager : MonoBehaviour
         {
             SpawnThing(farmlandGhostPrefab);
         }
-        if (Input.GetKey(KeyCode.T))
+/*        if (Input.GetKey(KeyCode.T))
         {
             SpawnThing(barnGhostPrefab);
-        }
+        }*/
 
 /*        if (Input.GetMouseButtonDown(0))
         {

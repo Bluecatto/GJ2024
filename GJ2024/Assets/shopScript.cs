@@ -86,9 +86,5 @@ public class shopScript : MonoBehaviour
             inv.AddItem(ItemID[itemid], sellAmount[itemid]);
             inv.SetGold(-cost);
         }
-        else
-        {
-            Debug.Log("no Munnie");
-        }
     }
 }
