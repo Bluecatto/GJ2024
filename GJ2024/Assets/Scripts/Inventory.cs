@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private GameObject Ui, Selector, mainItem;
     [SerializeField] public List<GameObject> Slots;
-    private bool isUiOpen = false;
     public int slotNumber = 1;
     public int itemInSlot = 0;
+
+    public TextMeshProUGUI goldText;
+    public int gold;
 
     [Header("1.carrot 2.corn 3.tomato 4.pumpking 5.eggplant")]
     public List<int> MaxAmount;
@@ -21,26 +25,13 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //AddItem(4, 5);
+        AddItem(1, 5);
+        AddItem(2, 12);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            if (isUiOpen)
-            {
-                Ui.SetActive(false);
-                isUiOpen = false;
-            }
-            else
-            {
-                Ui.SetActive(true);
-                isUiOpen = true;
-            }
-        }
-
         //aaaaaaaaaaaaaaaaaaaaaaaaaaaaa
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -62,9 +53,21 @@ public class Inventory : MonoBehaviour
         {
             SetSelector(5);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            SetSelector(6);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            SetSelector(7);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            SetSelector(8);
+        }
         if (Input.GetAxis("Mouse ScrollWheel") > 0f) 
         {
-            if (slotNumber >= 5)
+            if (slotNumber >= 8)
             {
 
             }
@@ -127,19 +130,32 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void RemoveItem(int itemNumber, int itemCount)
+    {
+        for (int i = 0; i < itemsInInventory.Count; i++)
+        {
+            if (itemsInInventory[i] != null && itemsInInventory[i].ItemNumber == itemNumber)
+            {
+                itemsInInventory[i].UpdateItem(-itemCount);
+                if (itemsInInventory[i].itemAmount <= 0)
+                {
+                    Destroy(itemsInInventory[i].gameObject);
+                    itemsInInventory.RemoveAt(i);
+                }
+                break;
+            }
+        }
+    }
+
     private void SetSelector(int number)
     {
-        if (itemsInInventory[number] != null)
-        {
-            itemInSlot = itemsInInventory[number].ItemNumber;
-        }
         slotNumber = number;
         Selector.transform.position = Slots[number - 1].transform.position;
     }
 
-    public void CloseMenu()
+    public void SetGold(int goldToAdd)
     {
-        Ui.SetActive(false);
-        isUiOpen = false;
+        gold += goldToAdd;
+        goldText.text = "Gold:" + gold.ToString();
     }
 }
