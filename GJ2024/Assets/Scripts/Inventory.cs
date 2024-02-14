@@ -7,8 +7,10 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject Ui, Selector, mainItem;
     [SerializeField] public List<GameObject> Slots;
     private bool isUiOpen = false;
-    private int slotNumber = 1;
+    public int slotNumber = 1;
+    public int itemInSlot = 0;
 
+    [Header("1.carrot 2.corn 3.tomato 4.pumpking 5.eggplant")]
     public List<int> MaxAmount;
 
     private GameObject TempItem;
@@ -19,10 +21,7 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //AddItem(4, 62);
-        AddItem(1, 62);
-        //AddItem(3, 62);
-        //AddItem(2, 62);
+        //AddItem(4, 5);
     }
 
     // Update is called once per frame
@@ -93,7 +92,7 @@ public class Inventory : MonoBehaviour
         {
             if (itemsInInventory[i] != null)
             {
-                if(itemsInInventory[i].ItemNumber == itemnumber)
+                if (itemsInInventory[i].ItemNumber == itemnumber)
                 {
                     int total = itemsInInventory[i].itemAmount + itemAmount;
 
@@ -104,38 +103,36 @@ public class Inventory : MonoBehaviour
                     }
                     else
                     {
-                        itemsInInventory[i].UpdateItem(MaxAmount[itemnumber]);
-                        int leftOver = total - MaxAmount[itemnumber];
-                        AddItem(itemnumber, leftOver);
-                        return;
+                        int amountToAdd = MaxAmount[itemnumber] - itemsInInventory[i].itemAmount;
+                        itemsInInventory[i].UpdateItem(amountToAdd);
+                        itemAmount -= amountToAdd;
                     }
                 }
             }
         }
 
-        for (int i = 0; i < itemsInInventory.Count; i++)
+        if (itemAmount > 0)
         {
-            if (itemsInInventory[i] == null)
+            for (int i = 0; i < itemsInInventory.Count; i++)
             {
-                TempItem = Instantiate(mainItem, Slots[i].transform);
-                currentItem = TempItem.GetComponent<ItemContent>();
-                currentItem.SetupItem(itemnumber, itemAmount);
-                itemsInInventory.Insert(i, currentItem);
-                break;
-            }
-            else
-            {
-                Debug.Log("Slot Full!");
-            }
-            if (i == 3)
-            {
-                Debug.Log("Inventory Full!");
+                if (itemsInInventory[i] == null)
+                {
+                    TempItem = Instantiate(mainItem, Slots[i].transform);
+                    currentItem = TempItem.GetComponent<ItemContent>();
+                    currentItem.SetupItem(itemnumber, itemAmount);
+                    itemsInInventory.Insert(i, currentItem);
+                    break;
+                }
             }
         }
     }
 
     private void SetSelector(int number)
     {
+        if (itemsInInventory[number] != null)
+        {
+            itemInSlot = itemsInInventory[number].ItemNumber;
+        }
         slotNumber = number;
         Selector.transform.position = Slots[number - 1].transform.position;
     }

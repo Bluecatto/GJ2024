@@ -28,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8213092957897661363}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.92387956, z: -0.38268343, w: 0}
-  m_LocalPosition: {x: 0, y: 0.8535, z: 0}
+  m_LocalRotation: {x: 0.00000037959836, y: 0.7071071, z: -0.7071065, w: 0.00000039488071}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 135, y: 0, z: -180}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -180}
 --- !u!33 &8213092957897661367
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -119,11 +119,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e38e5428453334cadee2048a7f1a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantnumber: 1
+  plantnumber: 4
   DeadMat: {fileID: 2100000, guid: 1e885c4d069bcc74b8f830db133e53b1, type: 2}
   plantLevel: 0
   maxlevel: 8
-  timeToDie: 5
+  timeToDie: 30
   canRegrow: 0
   isDead: 0
   goBackToLevel: 0
@@ -138,3 +138,4 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 22d8bccadbbe3c24fa64fc7cb7236575, type: 2}
   - {fileID: 2100000, guid: 0f8b1fe2e3b7558489e25b0704532204, type: 2}
   delay: 0200000002000000020000000200000002000000020000000200000002000000
+  inv: {fileID: 0}

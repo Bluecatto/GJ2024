@@ -51,6 +51,8 @@ public class FarmlandManager : MonoBehaviour
                     {
                         Crops crop = farmland.attachedCrop.GetComponent<Crops>();
                         crop.Harvest();
+                        farmland.hasPlant = true;
+                        Instantiate(crops[Random.Range(0, crops.Length)], hit.transform);
                     }
                 }
             }
