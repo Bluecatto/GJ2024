@@ -76,4 +76,9 @@ public class shopScript : MonoBehaviour
         }
         Debug.Log("Not enough items to sell.");
     }
+
+    public void Buy(int itemid)
+    {
+        inv.AddItem(ItemID[itemid], sellAmount[itemid]);
+    }
 }

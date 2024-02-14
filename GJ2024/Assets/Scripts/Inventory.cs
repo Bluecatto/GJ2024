@@ -25,8 +25,8 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AddItem(1, 5);
-        AddItem(2, 12);
+        AddItem(11, 1);
+        AddItem(14, 1);
     }
 
     // Update is called once per frame
