@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
     public int itemInSlot = 0;
 
     public TextMeshProUGUI goldText;
-    public int gold;
+    public int gold = 100;
 
     [Header("1.carrot 2.corn 3.tomato 4.pumpking 5.eggplant")]
     public List<int> MaxAmount;
@@ -26,6 +26,7 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         AddItem(11, 1);
+        AddItem(17, 1);
         AddItem(14, 1);
     }
 

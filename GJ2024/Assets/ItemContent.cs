@@ -32,13 +32,28 @@ public class ItemContent : MonoBehaviour
     {
         ItemNumber = ItemNumbah;
         itemAmount = itemAmounts;
-        itemsAmount.text = itemAmount.ToString();
+
+        if (itemAmount == 1)
+        {
+            itemsAmount.text = "";
+        }
+        else
+        {
+            itemsAmount.text = itemAmount.ToString();
+        }
         GetComponent<Image>().sprite = inventoryItemsIcons[ItemNumber];
     }
 
     public void UpdateItem(int AmountToAdd)
     {
         itemAmount += AmountToAdd;
-        itemsAmount.text = itemAmount.ToString();
+        if(itemAmount == 1)
+        {
+            itemsAmount.text = "";
+        }
+        else
+        {
+            itemsAmount.text = itemAmount.ToString();
+        }
     }
 }

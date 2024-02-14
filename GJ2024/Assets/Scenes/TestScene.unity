@@ -1267,6 +1267,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
         type: 3}
+      propertyPath: gold
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
       propertyPath: Selector
       value: 
       objectReference: {fileID: 954726264}
@@ -1333,7 +1338,7 @@ PrefabInstance:
     - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
         type: 3}
       propertyPath: MaxAmount.Array.size
-      value: 12
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
         type: 3}
@@ -1393,6 +1398,41 @@ PrefabInstance:
     - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
         type: 3}
       propertyPath: MaxAmount.Array.data[11]
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.data[12]
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.data[13]
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.data[14]
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.data[15]
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.data[16]
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.data[17]
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.data[18]
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5679003807824156136, guid: 344cef6df9ab290419afb882d40e6b51,
@@ -4873,6 +4913,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 218701923}
+  crops:
+  - {fileID: 5318885540248326590, guid: b9ebc31398e90cc4cac3d91e3690fe42, type: 3}
+  - {fileID: 6882333403592990878, guid: 8cdb294d0fe0cf5468c4ee8fc6bdbf95, type: 3}
+  - {fileID: 4580664603171726957, guid: eaf8d491cd0b9b042814b21556b6a1c3, type: 3}
+  - {fileID: 8213092957897661363, guid: bb72b43f3b013814aa259f662d0ef9a3, type: 3}
+  - {fileID: 5921812619848581916, guid: f984ed2852899164fa13c96cf76b7b25, type: 3}
 --- !u!1 &810131427
 GameObject:
   m_ObjectHideFlags: 0

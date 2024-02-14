@@ -32,7 +32,7 @@ public class FarmlandManager : MonoBehaviour
             SpawnThing(barnGhostPrefab);
         }
 
-        if (Input.GetMouseButtonDown(0))
+/*        if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
             var ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -56,7 +56,7 @@ public class FarmlandManager : MonoBehaviour
                     }
                 }
             }
-        }
+        }*/
     }
     private void SpawnThing(GameObject prefab)
     {

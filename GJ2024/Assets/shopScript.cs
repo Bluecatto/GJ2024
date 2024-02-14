@@ -79,6 +79,16 @@ public class shopScript : MonoBehaviour
 
     public void Buy(int itemid)
     {
-        inv.AddItem(ItemID[itemid], sellAmount[itemid]);
+        int cost = sellItemAmount[itemid] * sellAmount[itemid];
+
+        if (cost <= inv.gold)
+        {
+            inv.AddItem(ItemID[itemid], sellAmount[itemid]);
+            inv.SetGold(-cost);
+        }
+        else
+        {
+            Debug.Log("no Munnie");
+        }
     }
 }
