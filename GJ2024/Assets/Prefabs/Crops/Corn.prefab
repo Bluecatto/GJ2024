@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4580664603171726957}
+  serializedVersion: 2
   m_LocalRotation: {x: 0.00000037959836, y: 0.7071071, z: -0.7071065, w: 0.00000039488071}
-  m_LocalPosition: {x: -4.3595924, y: 5.0000005, z: 1.6143583}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -180}
 --- !u!33 &4580664603171726953
 MeshFilter:
@@ -93,9 +93,17 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4580664603171726957}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
@@ -111,9 +119,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e38e5428453334cadee2048a7f1a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plantnumber: 2
+  DeadMat: {fileID: 2100000, guid: f171bd80423649648b161ce0bfdc7473, type: 2}
   plantLevel: 0
   maxlevel: 3
+  timeToDie: 30
   canRegrow: 0
+  isDead: 0
   goBackToLevel: 0
   mesh: {fileID: 4580664603171726954}
   mats:
@@ -121,3 +133,4 @@ MonoBehaviour:
   - {fileID: 2100000, guid: e56f837c6ed870c479a62caaa302a574, type: 2}
   - {fileID: 2100000, guid: 0e39a350de253f24fbe0c6499f6c8ad4, type: 2}
   delay: 020000000400000006000000
+  inv: {fileID: 0}

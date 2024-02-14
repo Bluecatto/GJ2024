@@ -4,46 +4,38 @@ using UnityEngine;
 
 public class Crops : MonoBehaviour
 {
+    [Header("1.carrot 2.corn 3.tomato 4.pumpking 5.eggplant")]
+    public int plantnumber = 1;
+    public Material DeadMat;
+
     public int plantLevel = 0;
     public int maxlevel = 5;
+    public int timeToDie = 5;
 
     public bool canRegrow = true;
+    public bool isDead = false;
     public int goBackToLevel = 3;
-
-    private int randomDelay;
 
     public MeshRenderer mesh;
     private bool isupgrading = false;
     [SerializeField] List<Material> mats;
     [SerializeField] List<int> delay;
 
+    public Inventory inv;
+
     // Start is called before the first frame update
     void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //temporary
-        Debug.Log(Random.Range(1, 10) / 100);
-
-        randomDelay = Random.Range(1, 10) % 100;
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Harvest();
-        }
+        inv = GameObject.FindWithTag("DevCube").GetComponent<Inventory>();
     }
 
     private void FixedUpdate()
     {
-        if (!isupgrading && plantLevel <= maxlevel - 1)
+        if (!isupgrading && plantLevel <= maxlevel - 1 && !isDead)
         {
+            CancelInvoke("KillPlant");
             isupgrading = true;
-            Debug.Log(delay[plantLevel]);
-            Invoke("UpgradeCrop", delay[plantLevel]);
+            Invoke("UpgradeCrop", delay[plantLevel] + Random.Range(.1f, 5f));
         }
     }
 
@@ -52,13 +44,47 @@ public class Crops : MonoBehaviour
         mesh.material = mats[plantLevel];
         plantLevel++;
         isupgrading = false;
+        if (plantLevel == maxlevel)
+        {
+            Invoke("KillPlant", timeToDie);
+        }
     }
 
     public void Harvest()
     {
-        if(plantLevel == maxlevel)
+        if (plantLevel == maxlevel)
         {
-            // add to inventory
+            //1.carrot 2.corn 3.tomato 4.pumpking 5.eggplant
+            switch (plantnumber)
+            {
+                case 1:
+                    {
+                        inv.AddItem(1, Random.Range(2, 5));
+                        break;
+                    }
+                case 2:
+                    {
+                        inv.AddItem(2, Random.Range(3, 5));
+                        break;
+                    }
+                case 3:
+                    {
+                        inv.AddItem(3, Random.Range(4, 7));
+                        break;
+                    }
+                case 4:
+                    {
+                        inv.AddItem(4, Random.Range(1, 3));
+                        break;
+                    }
+                case 5:
+                    {
+                        inv.AddItem(5, Random.Range(1, 4));
+                        break;
+                    }
+                default:
+                    break;
+            }
 
             if (canRegrow)
             {
@@ -67,8 +93,19 @@ public class Crops : MonoBehaviour
             }
             else
             {
-                Destroy(this.gameObject, 1f);
+                Destroy(this.gameObject);
             }
         }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    public void KillPlant()
+    {
+        isDead = true;
+        mesh.material = DeadMat;
+        plantLevel = 0;
     }
 }
