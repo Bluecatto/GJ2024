@@ -389,7 +389,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sell
+  m_text: Buy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -549,7 +549,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2078894965}
+      - m_Target: {fileID: 468192242}
         m_TargetAssemblyTypeName: shopScript, Assembly-CSharp
         m_MethodName: Up
         m_Mode: 3
@@ -1267,6 +1267,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
         type: 3}
+      propertyPath: gold
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
       propertyPath: Selector
       value: 
       objectReference: {fileID: 954726264}
@@ -1333,7 +1338,7 @@ PrefabInstance:
     - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
         type: 3}
       propertyPath: MaxAmount.Array.size
-      value: 6
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
         type: 3}
@@ -1368,17 +1373,67 @@ PrefabInstance:
     - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
         type: 3}
       propertyPath: MaxAmount.Array.data[6]
-      value: 4
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
         type: 3}
       propertyPath: MaxAmount.Array.data[7]
-      value: 4
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
         type: 3}
       propertyPath: MaxAmount.Array.data[8]
-      value: 4
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.data[9]
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.data[10]
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.data[11]
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.data[12]
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.data[13]
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.data[14]
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.data[15]
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.data[16]
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.data[17]
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679003807824156132, guid: 344cef6df9ab290419afb882d40e6b51,
+        type: 3}
+      propertyPath: MaxAmount.Array.data[18]
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5679003807824156136, guid: 344cef6df9ab290419afb882d40e6b51,
         type: 3}
@@ -2523,7 +2578,7 @@ GameObject:
   - component: {fileID: 468192243}
   - component: {fileID: 468192242}
   m_Layer: 0
-  m_Name: Shop (1)
+  m_Name: BuyShopSeeds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2543,14 +2598,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShopUi: {fileID: 1158921324}
   inv: {fileID: 218701923}
-  ItemID: 000000000100000002000000050000000400000003000000
+  ItemID: 0000000006000000080000000a0000000900000007000000
   AmountText:
   - {fileID: 0}
-  - {fileID: 1363482381}
-  - {fileID: 1486554477}
-  - {fileID: 1060121249}
-  - {fileID: 212809973}
-  - {fileID: 1005273230}
+  - {fileID: 709333979}
+  - {fileID: 2007501832}
+  - {fileID: 396694652}
+  - {fileID: 1512356493}
+  - {fileID: 710151532}
   sellAmount: 000000000100000001000000010000000100000001000000
   sellItemAmount: 000000000a0000000a0000000a0000000a0000000a000000
 --- !u!65 &468192243
@@ -3722,7 +3777,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2078894965}
+      - m_Target: {fileID: 468192242}
         m_TargetAssemblyTypeName: shopScript, Assembly-CSharp
         m_MethodName: Down
         m_Mode: 3
@@ -3855,7 +3910,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2078894965}
+      - m_Target: {fileID: 468192242}
         m_TargetAssemblyTypeName: shopScript, Assembly-CSharp
         m_MethodName: Down
         m_Mode: 3
@@ -4390,9 +4445,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2078894965}
+      - m_Target: {fileID: 468192242}
         m_TargetAssemblyTypeName: shopScript, Assembly-CSharp
-        m_MethodName: Sell
+        m_MethodName: Buy
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4789,9 +4844,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2078894965}
+      - m_Target: {fileID: 468192242}
         m_TargetAssemblyTypeName: shopScript, Assembly-CSharp
-        m_MethodName: Sell
+        m_MethodName: Buy
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4858,6 +4913,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 218701923}
+  crops:
+  - {fileID: 5318885540248326590, guid: b9ebc31398e90cc4cac3d91e3690fe42, type: 3}
+  - {fileID: 6882333403592990878, guid: 8cdb294d0fe0cf5468c4ee8fc6bdbf95, type: 3}
+  - {fileID: 4580664603171726957, guid: eaf8d491cd0b9b042814b21556b6a1c3, type: 3}
+  - {fileID: 8213092957897661363, guid: bb72b43f3b013814aa259f662d0ef9a3, type: 3}
+  - {fileID: 5921812619848581916, guid: f984ed2852899164fa13c96cf76b7b25, type: 3}
 --- !u!1 &810131427
 GameObject:
   m_ObjectHideFlags: 0
@@ -6195,9 +6256,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2078894965}
+      - m_Target: {fileID: 468192242}
         m_TargetAssemblyTypeName: shopScript, Assembly-CSharp
-        m_MethodName: Sell
+        m_MethodName: Buy
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6497,7 +6558,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2078894965}
+      - m_Target: {fileID: 468192242}
         m_TargetAssemblyTypeName: shopScript, Assembly-CSharp
         m_MethodName: Down
         m_Mode: 3
@@ -6973,7 +7034,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2078894965}
+      - m_Target: {fileID: 468192242}
         m_TargetAssemblyTypeName: shopScript, Assembly-CSharp
         m_MethodName: Up
         m_Mode: 3
@@ -7129,6 +7190,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 388020129}
   - {fileID: 1097779190}
   - {fileID: 954726265}
   - {fileID: 1906618272}
@@ -7139,7 +7201,6 @@ RectTransform:
   - {fileID: 1546798111}
   - {fileID: 1629197870}
   - {fileID: 539016843}
-  - {fileID: 388020129}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -7228,7 +7289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1158921325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8186,7 +8247,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2078894965}
+      - m_Target: {fileID: 468192242}
         m_TargetAssemblyTypeName: shopScript, Assembly-CSharp
         m_MethodName: Up
         m_Mode: 3
@@ -10411,7 +10472,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2078894965}
+      - m_Target: {fileID: 468192242}
         m_TargetAssemblyTypeName: shopScript, Assembly-CSharp
         m_MethodName: Down
         m_Mode: 3
@@ -11111,9 +11172,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2078894965}
+      - m_Target: {fileID: 468192242}
         m_TargetAssemblyTypeName: shopScript, Assembly-CSharp
-        m_MethodName: Sell
+        m_MethodName: Buy
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11840,7 +11901,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2078894965}
+      - m_Target: {fileID: 468192242}
         m_TargetAssemblyTypeName: shopScript, Assembly-CSharp
         m_MethodName: Up
         m_Mode: 3
@@ -11947,7 +12008,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sell
+  m_text: Buy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12107,7 +12168,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2078894965}
+      - m_Target: {fileID: 468192242}
         m_TargetAssemblyTypeName: shopScript, Assembly-CSharp
         m_MethodName: Up
         m_Mode: 3
@@ -12943,9 +13004,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2078894965}
+      - m_Target: {fileID: 468192242}
         m_TargetAssemblyTypeName: shopScript, Assembly-CSharp
-        m_MethodName: Sell
+        m_MethodName: Buy
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13076,7 +13137,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2078894965}
+      - m_Target: {fileID: 468192242}
         m_TargetAssemblyTypeName: shopScript, Assembly-CSharp
         m_MethodName: Down
         m_Mode: 3
@@ -13719,7 +13780,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sell
+  m_text: Buy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13811,7 +13872,7 @@ GameObject:
   - component: {fileID: 2078894960}
   - component: {fileID: 2078894965}
   m_Layer: 0
-  m_Name: Shop
+  m_Name: SellShop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14139,7 +14200,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sell
+  m_text: Buy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

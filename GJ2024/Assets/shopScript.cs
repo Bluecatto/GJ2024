@@ -76,4 +76,19 @@ public class shopScript : MonoBehaviour
         }
         Debug.Log("Not enough items to sell.");
     }
+
+    public void Buy(int itemid)
+    {
+        int cost = sellItemAmount[itemid] * sellAmount[itemid];
+
+        if (cost <= inv.gold)
+        {
+            inv.AddItem(ItemID[itemid], sellAmount[itemid]);
+            inv.SetGold(-cost);
+        }
+        else
+        {
+            Debug.Log("no Munnie");
+        }
+    }
 }
