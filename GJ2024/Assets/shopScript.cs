@@ -43,61 +43,37 @@ public class shopScript : MonoBehaviour
         }
     }
 
-    public void Up1()
+    public void Up(int i)
     {
-        sellAmount[1]++;
-        AmountText[1].text = sellAmount[1].ToString();
+        sellAmount[i]++;
+        AmountText[i].text = sellAmount[i].ToString();
     }
-    public void Down1()
+    public void Down(int i)
     {
-        if(sellAmount[1] >= 2)
+        if(sellAmount[i] >= 2)
         {
-            sellAmount[1]--;
-            AmountText[1].text = sellAmount[1].ToString();
+            sellAmount[i]--;
+            AmountText[i].text = sellAmount[i].ToString();
         }
     }
-    public void Sell1()
-    {
 
-/*        Debug.Log("sell");
-        int MoneyToAdd = sellItemAmount[1] * sellAmount[1];
-        Debug.Log(MoneyToAdd);
-        inv.SetGold(MoneyToAdd);*/
-    }
+    public void Sell(int itemid)
+    {
+        int itemNumberToSell = ItemID[itemid];
+        int sellPrice = sellItemAmount[itemid];
+        int sellCount = sellAmount[itemid];
+        int totalPrice = sellPrice * sellCount;
 
-/*    public void Up2()
-    {
-        sellAmount[2]++;
-        AmountText[2].text = sellAmount[2].ToString();
-    }
-    public void Down2()
-    {
-        if (sellAmount[2] >= 2)
+        if (inv.itemsInInventory != null)
         {
-            sellAmount[2]--;
-            AmountText[2].text = sellAmount[2].ToString();
+            int itemIndex = inv.itemsInInventory.FindIndex(item => item != null && item.ItemNumber == itemNumberToSell && item.itemAmount >= sellCount);
+            if (itemIndex != -1)
+            {
+                inv.RemoveItem(itemNumberToSell, sellCount);
+                inv.SetGold(totalPrice);
+                return;
+            }
         }
+        Debug.Log("Not enough items to sell.");
     }
-    public void Sell2()
-    {
-        Debug.Log("sell");
-    }
-
-    public void Up3()
-    {
-        sellAmount[3]++;
-        AmountText[3].text = sellAmount[3].ToString();
-    }
-    public void Down3()
-    {
-        if (sellAmount[3] >= 3)
-        {
-            sellAmount[3]--;
-            AmountText[3].text = sellAmount[3].ToString();
-        }
-    }
-    public void Sell3()
-    {
-        Debug.Log("sell");
-    }*/
 }

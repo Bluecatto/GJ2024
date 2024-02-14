@@ -26,6 +26,7 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         AddItem(1, 5);
+        AddItem(2, 12);
     }
 
     // Update is called once per frame
@@ -125,6 +126,23 @@ public class Inventory : MonoBehaviour
                     itemsInInventory.Insert(i, currentItem);
                     break;
                 }
+            }
+        }
+    }
+
+    public void RemoveItem(int itemNumber, int itemCount)
+    {
+        for (int i = 0; i < itemsInInventory.Count; i++)
+        {
+            if (itemsInInventory[i] != null && itemsInInventory[i].ItemNumber == itemNumber)
+            {
+                itemsInInventory[i].UpdateItem(-itemCount);
+                if (itemsInInventory[i].itemAmount <= 0)
+                {
+                    Destroy(itemsInInventory[i].gameObject);
+                    itemsInInventory.RemoveAt(i);
+                }
+                break;
             }
         }
     }
