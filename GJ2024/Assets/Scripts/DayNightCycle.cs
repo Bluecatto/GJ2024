@@ -7,8 +7,8 @@ public class DayNightCycle : MonoBehaviour
     [SerializeField] private Light globalLight;
     private float intensity;
     private float timeUntilSwitch;
-    public float MonsterScaling;
     public bool isDay;
+    private HealthBar healthBar;
 
     [Header("Daytime Cycle Settings")]
     [SerializeField] private float dayTimeDuration;
@@ -17,6 +17,7 @@ public class DayNightCycle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        healthBar = GameObject.FindGameObjectWithTag("DevCube").GetComponent<HealthBar>();
         intensity = globalLight.intensity;
         timeUntilSwitch = dayTimeDuration;
         isDay = true;

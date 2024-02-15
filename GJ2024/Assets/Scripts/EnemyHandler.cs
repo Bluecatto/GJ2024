@@ -9,18 +9,20 @@ public class EnemyHandler : MonoBehaviour
     [SerializeField] private Transform[] enemySpawnpoint;
     private bool spawned;
 
-    private float interval;
+    [SerializeField] private float spawnInterval;
+    private float intervalTimer;
     private float difficultyScaling;
     // Start is called before the first frame update
     void Start()
     {
-        
+        intervalTimer = spawnInterval;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         difficultyScaling = Time.time / 60f;
+
         if (!cycleHandler.isDay && !spawned)
         {
             for (int i = 0; i < difficultyScaling; i++)
@@ -29,9 +31,14 @@ public class EnemyHandler : MonoBehaviour
             }
             spawned = true;
         }
-        else if (cycleHandler.isDay)
+        else if (intervalTimer < 0f)
         {
             spawned = false;
+            intervalTimer = spawnInterval;
+        }
+        else
+        {
+            intervalTimer -= Time.deltaTime;
         }
     }
 

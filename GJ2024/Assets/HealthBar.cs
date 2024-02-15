@@ -18,10 +18,8 @@ public class HealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            UpdateHealthBar(-10f);
-        }
+        //Health regen
+        UpdateHealthBar(Time.deltaTime);
     }
 
     public void UpdateHealthBar(float amountToAdd)
