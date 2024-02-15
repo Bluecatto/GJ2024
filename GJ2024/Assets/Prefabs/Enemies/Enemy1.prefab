@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 390661771333596311}
   - component: {fileID: 8855370209845909985}
   m_Layer: 0
-  m_Name: Enemy
-  m_TagString: Untagged
+  m_Name: Enemy1
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nav: {fileID: 8855370209845909985}
-  target: {fileID: 0}
   AttackCooldown: 2
   AttackDamage: 1
   healthPoints: 10

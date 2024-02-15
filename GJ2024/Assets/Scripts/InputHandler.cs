@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
+using static UnityEngine.GraphicsBuffer;
 
 public class InputHandler : MonoBehaviour
 {
@@ -8,6 +11,9 @@ public class InputHandler : MonoBehaviour
     public List<GameObject> crops;
     public GameObject crop;
     public FarmlandManager farm;
+
+    private float AttackCooldownTimer;
+    private float AttackCooldown = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -60,12 +66,12 @@ public class InputHandler : MonoBehaviour
                         }
                     case 11:
                         {
-                            SwingSword(0);
+                            PlayerAttack(5f);
                             break;
                         }
                     case 12:
                         {
-                            SwingSword(1);
+                            PlayerAttack(10f);
                             break;
                         }
                     case 14:
@@ -146,7 +152,13 @@ public class InputHandler : MonoBehaviour
         }
     }
 
-
+    private void FixedUpdate()
+    {
+        if (AttackCooldownTimer >= 0f)
+        {
+            AttackCooldownTimer -= Time.deltaTime;
+        }
+    }
 
     private void SeedPlant(int seed)
     {
@@ -208,8 +220,27 @@ public class InputHandler : MonoBehaviour
         }
     }
 
-    private void SwingSword(int sword)
+    //this is BAD !!!!!!!!!!!!!!!!!!!!!!!!!!
+    public void PlayerAttack(float damage)
     {
+        if (AttackCooldownTimer < 0f)
+        {
+            //TODO: Swing animation.
+            Debug.Log($"Player swings sword");
 
+            AttackCooldownTimer = AttackCooldown;
+
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            GameObject[] target = GameObject.FindGameObjectsWithTag("Enemy");
+            for (int i = 0; i < target.Length; i++)
+            {
+                if (Vector3.Distance(target[i].transform.position, player.transform.position) <= 2.5f)
+                {
+                    target[i].GetComponent<EnemyController>().TakeDamage(damage);
+                    target[i].GetComponent<NavMeshAgent>().velocity += Vector3.ClampMagnitude((target[i].transform.position - player.transform.position) * 20f, 4f);
+                    Debug.Log($"dealt {damage} damage to {target[i].name}");
+                }
+            }
+        }
     }
 }

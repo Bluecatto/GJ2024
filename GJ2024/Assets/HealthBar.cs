@@ -24,7 +24,7 @@ public class HealthBar : MonoBehaviour
         }
     }
 
-    void UpdateHealthBar(float amountToAdd)
+    public void UpdateHealthBar(float amountToAdd)
     {
         Health += amountToAdd;
 
