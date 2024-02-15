@@ -8,7 +8,6 @@ public class EnemyController : MonoBehaviour
 {
     public NavMeshAgent Nav;
     private GameObject target;
-    private movement playerScript;
     private Rigidbody targetrb;
     private float AttackCooldownTimer;
     private HealthBar healthBar;
@@ -21,9 +20,8 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        healthBar = GameObject.FindGameObjectWithTag("DevCube").GetComponent<HealthBar>();
         target = GameObject.FindGameObjectWithTag("Player");
-        healthBar = target.GetComponent<HealthBar>();
-        playerScript = target.GetComponent<movement>();
         targetrb = target.GetComponent<Rigidbody>();
         Physics.IgnoreCollision(this.GetComponent<Collider>(), target.GetComponent<Collider>());
     }
