@@ -14,7 +14,6 @@ public class EnemyHandler : MonoBehaviour
     private float intervalTimer;
     private float difficultyScaling;
 
-    [SerializeField] float timescale;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +21,6 @@ public class EnemyHandler : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void Update()
-    {
-        Time.timeScale = timescale;
-    }
     void FixedUpdate()
     {
         difficultyScaling = Time.time / 60f;
