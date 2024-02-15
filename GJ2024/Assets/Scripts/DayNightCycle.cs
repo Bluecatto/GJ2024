@@ -10,6 +10,8 @@ public class DayNightCycle : MonoBehaviour
     public bool isDay;
     private HealthBar healthBar;
 
+    public AudioSource nightTimeMusic, dayTimeMusic;
+
     [Header("Daytime Cycle Settings")]
     [SerializeField] private float dayTimeDuration;
     [SerializeField] private float nightTimeDuration;
@@ -20,13 +22,14 @@ public class DayNightCycle : MonoBehaviour
         healthBar = GameObject.FindGameObjectWithTag("DevCube").GetComponent<HealthBar>();
         intensity = globalLight.intensity;
         timeUntilSwitch = dayTimeDuration;
+
         isDay = true;
+        dayTimeMusic.Play();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        //this.transform.eulerAngles += new Vector3(cycleSpeed * Time.deltaTime, 0f, 0f);  //WERKT NIET
 
         timeUntilSwitch -= Time.deltaTime;
 
@@ -35,11 +38,19 @@ public class DayNightCycle : MonoBehaviour
             if (isDay)
             {
                 isDay = false;
+
+                nightTimeMusic.Play();
+                dayTimeMusic.Stop();
+
                 timeUntilSwitch = nightTimeDuration;
             }
             else
             {
                 isDay = true;
+
+                dayTimeMusic.Play();
+                nightTimeMusic.Stop();
+
                 timeUntilSwitch = dayTimeDuration;
             }
         }

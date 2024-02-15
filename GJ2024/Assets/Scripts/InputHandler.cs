@@ -13,8 +13,7 @@ public class InputHandler : MonoBehaviour
     public FarmlandManager farm;
 
     private float AttackCooldownTimer;
-    private float AttackCooldown = 1f;
-    public AudioSource waterGet, waterUse, cropGet, plantSeed;
+    public AudioSource waterGet, waterUse, cropGet, plantSeed, swordSwing;
 
     // Start is called before the first frame update
     void Start()
@@ -67,12 +66,12 @@ public class InputHandler : MonoBehaviour
                         }
                     case 11:
                         {
-                            PlayerAttack(5f);
+                            PlayerAttack(5f, 0.425f);
                             break;
                         }
                     case 12:
                         {
-                            PlayerAttack(10f);
+                            PlayerAttack(12.5f, 0.85f);
                             break;
                         }
                     case 14:
@@ -237,14 +236,14 @@ public class InputHandler : MonoBehaviour
     }
 
     //this is BAD !!!!!!!!!!!!!!!!!!!!!!!!!!
-    public void PlayerAttack(float damage)
+    public void PlayerAttack(float damage, float cooldown)
     {
         if (AttackCooldownTimer < 0f)
         {
             //TODO: Swing animation.
             Debug.Log($"Player swings sword");
-
-            AttackCooldownTimer = AttackCooldown;
+            swordSwing.Play();
+            AttackCooldownTimer = cooldown;
 
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             GameObject[] target = GameObject.FindGameObjectsWithTag("Enemy");

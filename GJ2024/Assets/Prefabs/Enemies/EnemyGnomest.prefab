@@ -72,8 +72,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nav: {fileID: 8855370209845909985}
   AttackCooldown: 10
-  AttackDamage: 30
-  healthPoints: 25
+  AttackDamage: 20
+  healthPoints: 50
 --- !u!195 &8855370209845909985
 NavMeshAgent:
   m_ObjectHideFlags: 0
