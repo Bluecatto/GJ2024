@@ -10,6 +10,8 @@ public class FarmlandManager : MonoBehaviour
     [SerializeField] public LayerMask invalidFloor;
     [SerializeField] public GameObject[] crops;
 
+    public AudioSource hoeLand;
+
     private Rigidbody player;
 
 
@@ -71,6 +73,7 @@ public class FarmlandManager : MonoBehaviour
                 {
                     hit.point = new Vector3(hit.point.x, -1.2f, hit.point.z);
                     Instantiate(farmlandGhostPrefab, hit.point, Quaternion.identity);
+                    hoeLand.Play();
                 }
             }
             placing = true;

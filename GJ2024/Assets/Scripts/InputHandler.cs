@@ -9,7 +9,7 @@ public class InputHandler : MonoBehaviour
     public GameObject crop;
     public FarmlandManager farm;
 
-    public AudioSource waterGet, waterUse;
+    public AudioSource waterGet, waterUse, cropGet, plantSeed;
 
     // Start is called before the first frame update
     void Start()
@@ -118,6 +118,7 @@ public class InputHandler : MonoBehaviour
                             Crops crop = farmland.attachedCrop.GetComponent<Crops>();
                             crop.Harvest();
                             farmland.SetDry();
+                            cropGet.Play();
 
                             if (!crop.canRegrow)
                             {
@@ -125,6 +126,11 @@ public class InputHandler : MonoBehaviour
                             }
 
                             if (crop.isDead)
+                            {
+                                farmland.hasPlant = false;
+                            }
+
+                            if (crop.plantLevel != crop.maxlevel)
                             {
                                 farmland.hasPlant = false;
                             }
@@ -153,8 +159,6 @@ public class InputHandler : MonoBehaviour
         }
     }
 
-
-
     private void SeedPlant(int seed)
     {
         RaycastHit hit;
@@ -170,6 +174,9 @@ public class InputHandler : MonoBehaviour
                     farmland.hasPlant = true;
                     inventory.itemsInInventory[inventory.slotNumber - 1].UpdateItem(-1);
                     crop = Instantiate(crops[seed], hit.transform);
+
+                    plantSeed.Play();
+
                     farmland.attachedCrop = crop;
                     if (farmland.isWet)
                     {
