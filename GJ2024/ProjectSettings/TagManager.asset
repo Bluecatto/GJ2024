@@ -9,6 +9,7 @@ TagManager:
   - FarmLand
   - WaterSource
   - Enemy
+  - Walls
   layers:
   - Default
   - TransparentFX
