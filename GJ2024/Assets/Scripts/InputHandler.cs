@@ -58,16 +58,26 @@ public class InputHandler : MonoBehaviour
                             SeedPlant(4);
                             break;
                         }
+                    case 11:
+                        {
+                            SwingSword(0);
+                            break;
+                        }
+                    case 12:
+                        {
+                            SwingSword(1);
+                            break;
+                        }
                     case 14:
                         {
                             //waterbucket
-                            WaterDirt();
+                            WaterDirt(0);
                             break;
                         }
                     case 16:
                         {
                             //waterbucket
-                            WaterDirt();
+                            WaterDirt(1);
                             break;
                         }
                     case 17:
@@ -124,11 +134,11 @@ public class InputHandler : MonoBehaviour
                     {
                         if (inventory.itemsInInventory[inventory.slotNumber - 1].ItemNumber == 13 || inventory.itemsInInventory[inventory.slotNumber - 1].ItemNumber == 14)
                         {
-                            inventory.itemsInInventory[inventory.slotNumber - 1].SetItem(4, 13);
+                            inventory.itemsInInventory[inventory.slotNumber - 1].SetItem(4, 14);
                         }
                         if (inventory.itemsInInventory[inventory.slotNumber - 1].ItemNumber == 15 || inventory.itemsInInventory[inventory.slotNumber - 1].ItemNumber == 16)
                         {
-                            inventory.itemsInInventory[inventory.slotNumber - 1].SetItem(8, 15);
+                            inventory.itemsInInventory[inventory.slotNumber - 1].SetItem(8, 16);
                         }
                     }
                 }
@@ -164,7 +174,7 @@ public class InputHandler : MonoBehaviour
         }
     }
 
-    private void WaterDirt()
+    private void WaterDirt(int buckettype)
     {
         RaycastHit hit;
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -183,11 +193,23 @@ public class InputHandler : MonoBehaviour
                     inventory.itemsInInventory[inventory.slotNumber - 1].UpdateItem(-1);
                 }
 
-                if(inventory.itemsInInventory[inventory.slotNumber - 1].itemAmount == 0)
+                if (inventory.itemsInInventory[inventory.slotNumber - 1].itemAmount == 0)
                 {
-                    inventory.itemsInInventory[inventory.slotNumber - 1].SetupItem(13, 0);
+                    if (buckettype == 0)
+                    {
+                        inventory.itemsInInventory[inventory.slotNumber - 1].SetupItem(13, 0);
+                    }
+                    else if (buckettype == 1)
+                    {
+                        inventory.itemsInInventory[inventory.slotNumber - 1].SetupItem(15, 0);
+                    }
                 }
             }
         }
+    }
+
+    private void SwingSword(int sword)
+    {
+
     }
 }
