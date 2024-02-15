@@ -13,9 +13,11 @@ public class movement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
+        Vector2 movementInput = new Vector2(horizontalInput, verticalInput).normalized;
+
         if (horizontalInput != 0 || verticalInput != 0)
         {
-            transform.position += new Vector3(horizontalInput * speed * 0.025f, 0, verticalInput * speed * 0.025f);
+            transform.position += new Vector3(movementInput.x * speed * 0.025f, 0, movementInput.y * speed * 0.025f);
         }
     }
 }
