@@ -1,10 +1,11 @@
 
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DayNightCycle : MonoBehaviour
 {
     [SerializeField] private Light globalLight;
-    [SerializeField] private Color[] dayNightColors;
+    private float intensity;
     private float timeUntilSwitch;
     public float MonsterScaling;
     public bool isDay;
@@ -16,6 +17,7 @@ public class DayNightCycle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        intensity = globalLight.intensity;
         timeUntilSwitch = dayTimeDuration;
         isDay = true;
     }
@@ -23,7 +25,6 @@ public class DayNightCycle : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log(timeUntilSwitch);
         //this.transform.eulerAngles += new Vector3(cycleSpeed * Time.deltaTime, 0f, 0f);  //WERKT NIET
 
         timeUntilSwitch -= Time.deltaTime;
@@ -43,12 +44,14 @@ public class DayNightCycle : MonoBehaviour
         }
         if (isDay)
         {
-            globalLight.color = Color.Lerp(globalLight.color, dayNightColors[0], 0.01f);
+            if (globalLight.intensity < intensity)
+            {
+                globalLight.intensity += Time.deltaTime * 0.25f;
+            }
         }
-        else
+        else if (globalLight.intensity > 0)
         {
-            globalLight.color = Color.Lerp(globalLight.color, dayNightColors[1], 0.01f);
+            globalLight.intensity -= Time.deltaTime * 0.25f;
         }
-
     }
 }

@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
+using static UnityEngine.GraphicsBuffer;
 
 public class InputHandler : MonoBehaviour
 {
@@ -8,6 +11,10 @@ public class InputHandler : MonoBehaviour
     public List<GameObject> crops;
     public GameObject crop;
     public FarmlandManager farm;
+
+    private float AttackCooldownTimer;
+    private float AttackCooldown = 1f;
+    public AudioSource waterGet, waterUse, cropGet, plantSeed;
 
     // Start is called before the first frame update
     void Start()
@@ -60,12 +67,12 @@ public class InputHandler : MonoBehaviour
                         }
                     case 11:
                         {
-                            SwingSword(0);
+                            PlayerAttack(5f);
                             break;
                         }
                     case 12:
                         {
-                            SwingSword(1);
+                            PlayerAttack(10f);
                             break;
                         }
                     case 14:
@@ -111,18 +118,27 @@ public class InputHandler : MonoBehaviour
                     FarmlandScript farmland = hit.collider.GetComponent<FarmlandScript>();
                     if (farmland.hasPlant)
                     {
-                        Crops crop = farmland.attachedCrop.GetComponent<Crops>();
-                        crop.Harvest();
-                        farmland.SetDry();
-
-                        if (!crop.canRegrow)
+                        if (farmland.attachedCrop.GetComponent<Crops>() != null)
                         {
-                            farmland.hasPlant = false;
-                        }
+                            Crops crop = farmland.attachedCrop.GetComponent<Crops>();
+                            crop.Harvest();
+                            farmland.SetDry();
+                            cropGet.Play();
 
-                        if (crop.isDead)
-                        {
-                            farmland.hasPlant = false;
+                            if (!crop.canRegrow)
+                            {
+                                farmland.hasPlant = false;
+                            }
+
+                            if (crop.isDead)
+                            {
+                                farmland.hasPlant = false;
+                            }
+
+                            if (crop.plantLevel != crop.maxlevel)
+                            {
+                                farmland.hasPlant = false;
+                            }
                         }
                     }
                 }
@@ -134,11 +150,13 @@ public class InputHandler : MonoBehaviour
                     {
                         if (inventory.itemsInInventory[inventory.slotNumber - 1].ItemNumber == 13 || inventory.itemsInInventory[inventory.slotNumber - 1].ItemNumber == 14)
                         {
-                            inventory.itemsInInventory[inventory.slotNumber - 1].SetItem(4, 14);
+                            inventory.itemsInInventory[inventory.slotNumber - 1].SetupItem(14, 4);
+                            waterGet.Play();
                         }
                         if (inventory.itemsInInventory[inventory.slotNumber - 1].ItemNumber == 15 || inventory.itemsInInventory[inventory.slotNumber - 1].ItemNumber == 16)
                         {
-                            inventory.itemsInInventory[inventory.slotNumber - 1].SetItem(8, 16);
+                            inventory.itemsInInventory[inventory.slotNumber - 1].SetupItem(16, 8);
+                            waterGet.Play();
                         }
                     }
                 }
@@ -146,7 +164,13 @@ public class InputHandler : MonoBehaviour
         }
     }
 
-
+    private void FixedUpdate()
+    {
+        if (AttackCooldownTimer >= 0f)
+        {
+            AttackCooldownTimer -= Time.deltaTime;
+        }
+    }
 
     private void SeedPlant(int seed)
     {
@@ -163,6 +187,9 @@ public class InputHandler : MonoBehaviour
                     farmland.hasPlant = true;
                     inventory.itemsInInventory[inventory.slotNumber - 1].UpdateItem(-1);
                     crop = Instantiate(crops[seed], hit.transform);
+
+                    plantSeed.Play();
+
                     farmland.attachedCrop = crop;
                     if (farmland.isWet)
                     {
@@ -188,6 +215,7 @@ public class InputHandler : MonoBehaviour
                     FarmlandScript farmland = hit.collider.GetComponent<FarmlandScript>();
 
                     farmland.SetWet();
+                    waterUse.Play();
 
                     inventory.itemsInInventory[inventory.slotNumber - 1].canDestroy = false;
                     inventory.itemsInInventory[inventory.slotNumber - 1].UpdateItem(-1);
@@ -208,8 +236,27 @@ public class InputHandler : MonoBehaviour
         }
     }
 
-    private void SwingSword(int sword)
+    //this is BAD !!!!!!!!!!!!!!!!!!!!!!!!!!
+    public void PlayerAttack(float damage)
     {
+        if (AttackCooldownTimer < 0f)
+        {
+            //TODO: Swing animation.
+            Debug.Log($"Player swings sword");
 
+            AttackCooldownTimer = AttackCooldown;
+
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            GameObject[] target = GameObject.FindGameObjectsWithTag("Enemy");
+            for (int i = 0; i < target.Length; i++)
+            {
+                if (Vector3.Distance(target[i].transform.position, player.transform.position) <= 2.5f)
+                {
+                    target[i].GetComponent<EnemyController>().TakeDamage(damage);
+                    target[i].GetComponent<NavMeshAgent>().velocity += Vector3.ClampMagnitude((target[i].transform.position - player.transform.position) * 20f, 4f);
+                    Debug.Log($"dealt {damage} damage to {target[i].name}");
+                }
+            }
+        }
     }
 }
