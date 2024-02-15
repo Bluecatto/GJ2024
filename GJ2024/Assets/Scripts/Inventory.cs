@@ -27,7 +27,8 @@ public class Inventory : MonoBehaviour
     {
         AddItem(11, 1);
         AddItem(17, 1);
-        AddItem(14, 1);
+        AddItem(14, 4);
+        AddItem(16, 8);
         AddItem(9, 8);
     }
 
