@@ -30,7 +30,7 @@ public class Inventory : MonoBehaviour
         AddItem(14, 4);
         AddItem(16, 8);
         AddItem(9, 8);
-        SetGold(25);
+        SetGold(800);
     }
 
     // Update is called once per frame
