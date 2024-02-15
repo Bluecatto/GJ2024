@@ -28,14 +28,13 @@ public class Inventory : MonoBehaviour
         AddItem(11, 1);
         AddItem(17, 1);
         AddItem(14, 4);
-        AddItem(6, 4);
+        AddItem(6, 3);
         SetGold(24);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //aaaaaaaaaaaaaaaaaaaaaaaaaaaaa
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             SetSelector(1);
