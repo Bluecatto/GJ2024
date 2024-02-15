@@ -120,9 +120,6 @@ public class InputHandler : MonoBehaviour
                         if (farmland.attachedCrop.GetComponent<Crops>() != null)
                         {
                             Crops crop = farmland.attachedCrop.GetComponent<Crops>();
-                            crop.Harvest();
-                            farmland.SetDry();
-                            cropGet.Play();
 
                             if (!crop.canRegrow)
                             {
@@ -138,6 +135,10 @@ public class InputHandler : MonoBehaviour
                             {
                                 farmland.hasPlant = false;
                             }
+
+                            crop.Harvest();
+                            farmland.SetDry();
+                            cropGet.Play();
                         }
                     }
                 }
@@ -241,7 +242,7 @@ public class InputHandler : MonoBehaviour
         if (AttackCooldownTimer < 0f)
         {
             //TODO: Swing animation.
-            Debug.Log($"Player swings sword");
+            //Debug.Log($"Player swings sword");
             swordSwing.Play();
             AttackCooldownTimer = cooldown;
 
@@ -253,7 +254,7 @@ public class InputHandler : MonoBehaviour
                 {
                     target[i].GetComponent<EnemyController>().TakeDamage(damage);
                     target[i].GetComponent<NavMeshAgent>().velocity += Vector3.ClampMagnitude((target[i].transform.position - player.transform.position) * 20f, 4f);
-                    Debug.Log($"dealt {damage} damage to {target[i].name}");
+                    //Debug.Log($"dealt {damage} damage to {target[i].name}");
                 }
             }
         }

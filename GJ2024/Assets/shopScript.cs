@@ -15,6 +15,7 @@ public class shopScript : MonoBehaviour
 
     public List<int> sellAmount;
     public List<int> sellItemAmount;
+    public AudioSource Ui, BuySound, SellSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,10 +48,12 @@ public class shopScript : MonoBehaviour
     {
         sellAmount[i]++;
         AmountText[i].text = sellAmount[i].ToString();
+        Ui.Play();
     }
     public void Down(int i)
     {
-        if(sellAmount[i] >= 2)
+        Ui.Play();
+        if (sellAmount[i] >= 2)
         {
             sellAmount[i]--;
             AmountText[i].text = sellAmount[i].ToString();
@@ -69,6 +72,7 @@ public class shopScript : MonoBehaviour
             int itemIndex = inv.itemsInInventory.FindIndex(item => item != null && item.ItemNumber == itemNumberToSell && item.itemAmount >= sellCount);
             if (itemIndex != -1)
             {
+                SellSound.Play();
                 inv.RemoveItem(itemNumberToSell, sellCount);
                 inv.SetGold(totalPrice);
                 return;
@@ -85,6 +89,7 @@ public class shopScript : MonoBehaviour
         {
             inv.AddItem(ItemID[itemid], sellAmount[itemid]);
             inv.SetGold(-cost);
+            BuySound.Play();
         }
     }
 }
