@@ -19,7 +19,10 @@ public class HealthBar : MonoBehaviour
     void Update()
     {
         //Health regen
-        UpdateHealthBar(Time.deltaTime);
+        if (Health < 100f)
+        {
+            UpdateHealthBar(Time.deltaTime);
+        }
     }
 
     public void UpdateHealthBar(float amountToAdd)

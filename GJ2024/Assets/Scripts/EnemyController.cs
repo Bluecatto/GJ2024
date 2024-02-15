@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (AttackCooldownTimer >= 0f)
         {
@@ -53,13 +53,13 @@ public class EnemyController : MonoBehaviour
         {
             Debug.Log($"Enemy {this.name} ({healthPoints} hp) attacks {target.name}");
             healthBar.UpdateHealthBar(-5f);
-            targetrb.velocity += Vector3.ClampMagnitude((target.transform.position - transform.position) * 20f, 4f);
+            targetrb.velocity += Vector3.ClampMagnitude((target.transform.position - transform.position) * 200f, 5f);
         }
     }
 
     public void Lunge()
     {
-        Nav.velocity += Vector3.ClampMagnitude((target.transform.position - transform.position)*6f, 4f);
+        Nav.velocity += Vector3.ClampMagnitude((target.transform.position - transform.position) * 20f, 4f);
     }
 
     public void TakeDamage(float damage)

@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 242084561120420419}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -70,9 +70,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe81681539ee43244ab57453272e2c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Nav: {fileID: 8855370209845909985, guid: 7a074fe32b532114db6c333cae2db395, type: 3}
-  AttackCooldown: 7
-  AttackDamage: 20
+  Nav: {fileID: 8855370209845909985}
+  AttackCooldown: 10
+  AttackDamage: 30
   healthPoints: 25
 --- !u!195 &8855370209845909985
 NavMeshAgent:
@@ -123,8 +123,8 @@ Transform:
   m_GameObject: {fileID: 7080369353506429706}
   serializedVersion: 2
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 0.67, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 0}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 158809053878030199}

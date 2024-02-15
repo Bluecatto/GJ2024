@@ -9,16 +9,23 @@ public class EnemyHandler : MonoBehaviour
     [SerializeField] private Transform[] enemySpawnpoint;
     private bool spawned;
 
-    [SerializeField] private float spawnInterval;
+    [SerializeField] private float spawnIntervalMin;
+    [SerializeField] private float spawnIntervalMax;
     private float intervalTimer;
     private float difficultyScaling;
+
+    [SerializeField] float timescale;
     // Start is called before the first frame update
     void Start()
     {
-        intervalTimer = spawnInterval;
+        intervalTimer = Random.Range(spawnIntervalMin,spawnIntervalMax);
     }
 
     // Update is called once per frame
+    private void Update()
+    {
+        Time.timeScale = timescale;
+    }
     void FixedUpdate()
     {
         difficultyScaling = Time.time / 60f;
@@ -34,7 +41,7 @@ public class EnemyHandler : MonoBehaviour
         else if (intervalTimer < 0f)
         {
             spawned = false;
-            intervalTimer = spawnInterval;
+            intervalTimer = Random.Range(spawnIntervalMin, spawnIntervalMax);
         }
         else
         {
