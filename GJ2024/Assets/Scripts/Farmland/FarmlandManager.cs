@@ -74,9 +74,9 @@ public class FarmlandManager : MonoBehaviour
                     hit.point = new Vector3(hit.point.x, -1.2f, hit.point.z);
                     Instantiate(farmlandGhostPrefab, hit.point, Quaternion.identity);
                     hoeLand.Play();
+                    placing = true;
                 }
             }
-            placing = true;
         }
     }
 }
