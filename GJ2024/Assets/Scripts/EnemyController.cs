@@ -7,20 +7,25 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     public NavMeshAgent Nav;
-    public GameObject target;
+    private GameObject target;
+    private movement playerScript;
     private Rigidbody targetrb;
     private float AttackCooldownTimer;
+    private HealthBar healthBar;
 
     [Header("Enemy Settings")]
     [SerializeField] private float AttackCooldown;
     [SerializeField] private float AttackDamage;
-    [SerializeField] private float healthPoints;
+    [SerializeField] public float healthPoints;
 
     // Start is called before the first frame update
     void Start()
     {
-        Physics.IgnoreCollision(this.GetComponent<Collider>(), target.GetComponent<Collider>());
+        target = GameObject.FindGameObjectWithTag("Player");
+        healthBar = target.GetComponent<HealthBar>();
+        playerScript = target.GetComponent<movement>();
         targetrb = target.GetComponent<Rigidbody>();
+        Physics.IgnoreCollision(this.GetComponent<Collider>(), target.GetComponent<Collider>());
     }
 
     // Update is called once per frame
@@ -49,6 +54,7 @@ public class EnemyController : MonoBehaviour
         if (Vector3.Distance(target.transform.position, transform.position) <= 2.5f)
         {
             Debug.Log($"Enemy {this.name} ({healthPoints} hp) attacks {target.name}");
+            healthBar.UpdateHealthBar(-5f);
             targetrb.velocity += Vector3.ClampMagnitude((target.transform.position - transform.position) * 20f, 4f);
         }
     }
@@ -63,6 +69,7 @@ public class EnemyController : MonoBehaviour
         healthPoints -= damage;
         if (healthPoints <= 0)
         {
+            //TODO: Death animation [?]
             Destroy(this.gameObject);
         }
     }
