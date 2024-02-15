@@ -29,7 +29,7 @@ public class InputHandler : MonoBehaviour
         //leftclick
         if (Input.GetMouseButtonDown(0))
         {
-            if(inventory.itemsInInventory[inventory.slotNumber - 1] != null)
+            if (inventory.itemsInInventory[inventory.slotNumber - 1] != null)
             {
                 switch (inventory.itemsInInventory[inventory.slotNumber - 1].ItemNumber)
                 {
@@ -58,6 +58,30 @@ public class InputHandler : MonoBehaviour
                             SeedPlant(4);
                             break;
                         }
+                    case 14:
+                        {
+                            //waterbucket
+                            WaterDirt();
+                            break;
+                        }
+                    case 16:
+                        {
+                            //waterbucket
+                            WaterDirt();
+                            break;
+                        }
+                    case 17:
+                        {
+                            //hoe
+                            farm.SpawnThing();
+                            break;
+                        }
+                    case 18:
+                        {
+                            //hoe
+                            farm.SpawnThing();
+                            break;
+                        }
                     default:
                         break;
                 }
@@ -79,6 +103,7 @@ public class InputHandler : MonoBehaviour
                     {
                         Crops crop = farmland.attachedCrop.GetComponent<Crops>();
                         crop.Harvest();
+                        farmland.SetDry();
 
                         if (!crop.canRegrow)
                         {
@@ -91,9 +116,27 @@ public class InputHandler : MonoBehaviour
                         }
                     }
                 }
+
+                if (hit.collider.tag == "WaterSource")
+                {
+                    //check if using bucket 13,14,15,16
+                    if (inventory.itemsInInventory[inventory.slotNumber - 1] != null)
+                    {
+                        if (inventory.itemsInInventory[inventory.slotNumber - 1].ItemNumber == 13 || inventory.itemsInInventory[inventory.slotNumber - 1].ItemNumber == 14)
+                        {
+                            inventory.itemsInInventory[inventory.slotNumber - 1].SetItem(4, 13);
+                        }
+                        if (inventory.itemsInInventory[inventory.slotNumber - 1].ItemNumber == 15 || inventory.itemsInInventory[inventory.slotNumber - 1].ItemNumber == 16)
+                        {
+                            inventory.itemsInInventory[inventory.slotNumber - 1].SetItem(8, 15);
+                        }
+                    }
+                }
             }
         }
     }
+
+
 
     private void SeedPlant(int seed)
     {
@@ -111,6 +154,38 @@ public class InputHandler : MonoBehaviour
                     inventory.itemsInInventory[inventory.slotNumber - 1].UpdateItem(-1);
                     crop = Instantiate(crops[seed], hit.transform);
                     farmland.attachedCrop = crop;
+                    if (farmland.isWet)
+                    {
+                        Crops crop1 = farmland.attachedCrop.GetComponent<Crops>();
+                        crop1.StartGrow();
+                    }
+                }
+            }
+        }
+    }
+
+    private void WaterDirt()
+    {
+        RaycastHit hit;
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.collider.tag == "FarmLand")
+            {
+                if (inventory.itemsInInventory[inventory.slotNumber - 1].itemAmount >= 1)
+                {
+                    FarmlandScript farmland = hit.collider.GetComponent<FarmlandScript>();
+
+                    farmland.SetWet();
+
+                    inventory.itemsInInventory[inventory.slotNumber - 1].canDestroy = false;
+                    inventory.itemsInInventory[inventory.slotNumber - 1].UpdateItem(-1);
+                }
+
+                if(inventory.itemsInInventory[inventory.slotNumber - 1].itemAmount == 0)
+                {
+                    inventory.itemsInInventory[inventory.slotNumber - 1].SetupItem(13, 0);
                 }
             }
         }

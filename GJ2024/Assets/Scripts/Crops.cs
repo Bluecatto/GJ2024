@@ -14,6 +14,7 @@ public class Crops : MonoBehaviour
 
     public bool canRegrow = true;
     public bool isDead = false;
+    public bool canGrow = false;
     public int goBackToLevel = 3;
 
     public MeshRenderer mesh;
@@ -31,12 +32,17 @@ public class Crops : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isupgrading && plantLevel <= maxlevel - 1 && !isDead)
+        if (!isupgrading && plantLevel <= maxlevel - 1 && !isDead && canGrow)
         {
             CancelInvoke("KillPlant");
             isupgrading = true;
             Invoke("UpgradeCrop", delay[plantLevel] + Random.Range(.1f, 5f));
         }
+    }
+
+    public void StartGrow()
+    {
+        canGrow = true;
     }
 
     public void UpgradeCrop()
@@ -88,6 +94,7 @@ public class Crops : MonoBehaviour
 
             if (canRegrow)
             {
+                canGrow = false;
                 plantLevel = goBackToLevel;
                 mesh.material = mats[plantLevel];
             }
