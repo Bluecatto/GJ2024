@@ -59,7 +59,6 @@ public class ItemContent : MonoBehaviour
 
     public void SetItem(int totalNumber, int bucket)
     {
-        Debug.Log(itemsAmount);
         itemAmount = totalNumber;
         if (itemAmount == 0)
         {
