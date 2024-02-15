@@ -30,6 +30,7 @@ public class Inventory : MonoBehaviour
         AddItem(14, 4);
         AddItem(16, 8);
         AddItem(9, 8);
+        SetGold(25);
     }
 
     // Update is called once per frame
@@ -159,6 +160,6 @@ public class Inventory : MonoBehaviour
     public void SetGold(int goldToAdd)
     {
         gold += goldToAdd;
-        goldText.text = "Gold:" + gold.ToString();
+        goldText.text = gold.ToString();
     }
 }

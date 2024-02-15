@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
+    public GameObject GameOverText;
     public Image health;
     public float Health = 100f;
 
@@ -26,6 +27,12 @@ public class HealthBar : MonoBehaviour
     void UpdateHealthBar(float amountToAdd)
     {
         Health += amountToAdd;
+
+        if(Health <= 0)
+        {
+            GameOverText.SetActive(true);
+        }
+
         health.fillAmount = Health / 100f;
     }
 }
