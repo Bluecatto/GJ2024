@@ -23,16 +23,16 @@ public class FarmlandManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.R))
+/*        if (Input.GetKey(KeyCode.R))
         {
-            SpawnThing(farmlandGhostPrefab);
-        }
-        if (Input.GetKey(KeyCode.T))
+            SpawnThing();
+        }*/
+/*        if (Input.GetKey(KeyCode.T))
         {
             SpawnThing(barnGhostPrefab);
-        }
+        }*/
 
-        if (Input.GetMouseButtonDown(0))
+/*        if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
             var ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -56,9 +56,9 @@ public class FarmlandManager : MonoBehaviour
                     }
                 }
             }
-        }
+        }*/
     }
-    private void SpawnThing(GameObject prefab)
+    public void SpawnThing()
     {
         if (!placing)
         {
@@ -70,7 +70,7 @@ public class FarmlandManager : MonoBehaviour
                 if (hit.rigidbody != null)
                 {
                     hit.point = new Vector3(hit.point.x, -1.2f, hit.point.z);
-                    Instantiate(prefab, hit.point, Quaternion.identity);
+                    Instantiate(farmlandGhostPrefab, hit.point, Quaternion.identity);
                 }
             }
             placing = true;
