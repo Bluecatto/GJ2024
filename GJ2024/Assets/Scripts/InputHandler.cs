@@ -14,6 +14,7 @@ public class InputHandler : MonoBehaviour
 
     private float AttackCooldownTimer;
     private float AttackCooldown = 1f;
+    public AudioSource waterGet, waterUse, cropGet, plantSeed;
 
     // Start is called before the first frame update
     void Start()
@@ -117,18 +118,27 @@ public class InputHandler : MonoBehaviour
                     FarmlandScript farmland = hit.collider.GetComponent<FarmlandScript>();
                     if (farmland.hasPlant)
                     {
-                        Crops crop = farmland.attachedCrop.GetComponent<Crops>();
-                        crop.Harvest();
-                        farmland.SetDry();
-
-                        if (!crop.canRegrow)
+                        if (farmland.attachedCrop.GetComponent<Crops>() != null)
                         {
-                            farmland.hasPlant = false;
-                        }
+                            Crops crop = farmland.attachedCrop.GetComponent<Crops>();
+                            crop.Harvest();
+                            farmland.SetDry();
+                            cropGet.Play();
 
-                        if (crop.isDead)
-                        {
-                            farmland.hasPlant = false;
+                            if (!crop.canRegrow)
+                            {
+                                farmland.hasPlant = false;
+                            }
+
+                            if (crop.isDead)
+                            {
+                                farmland.hasPlant = false;
+                            }
+
+                            if (crop.plantLevel != crop.maxlevel)
+                            {
+                                farmland.hasPlant = false;
+                            }
                         }
                     }
                 }
@@ -140,11 +150,13 @@ public class InputHandler : MonoBehaviour
                     {
                         if (inventory.itemsInInventory[inventory.slotNumber - 1].ItemNumber == 13 || inventory.itemsInInventory[inventory.slotNumber - 1].ItemNumber == 14)
                         {
-                            inventory.itemsInInventory[inventory.slotNumber - 1].SetItem(4, 14);
+                            inventory.itemsInInventory[inventory.slotNumber - 1].SetupItem(14, 4);
+                            waterGet.Play();
                         }
                         if (inventory.itemsInInventory[inventory.slotNumber - 1].ItemNumber == 15 || inventory.itemsInInventory[inventory.slotNumber - 1].ItemNumber == 16)
                         {
-                            inventory.itemsInInventory[inventory.slotNumber - 1].SetItem(8, 16);
+                            inventory.itemsInInventory[inventory.slotNumber - 1].SetupItem(16, 8);
+                            waterGet.Play();
                         }
                     }
                 }
@@ -175,6 +187,9 @@ public class InputHandler : MonoBehaviour
                     farmland.hasPlant = true;
                     inventory.itemsInInventory[inventory.slotNumber - 1].UpdateItem(-1);
                     crop = Instantiate(crops[seed], hit.transform);
+
+                    plantSeed.Play();
+
                     farmland.attachedCrop = crop;
                     if (farmland.isWet)
                     {
@@ -200,6 +215,7 @@ public class InputHandler : MonoBehaviour
                     FarmlandScript farmland = hit.collider.GetComponent<FarmlandScript>();
 
                     farmland.SetWet();
+                    waterUse.Play();
 
                     inventory.itemsInInventory[inventory.slotNumber - 1].canDestroy = false;
                     inventory.itemsInInventory[inventory.slotNumber - 1].UpdateItem(-1);
