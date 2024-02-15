@@ -146,5 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1944deea4b9a849af4b29f11d59e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mesh: {fileID: 5574078211243533343}
   hasPlant: 0
+  isWet: 0
   attachedCrop: {fileID: 0}
+  cropp: {fileID: 0}
+  dryMat: {fileID: 2100000, guid: e353666af7228f2408e982baf36cbed4, type: 2}
+  wetMat: {fileID: 2100000, guid: a694e5b2910a5c64189c2edaea489021, type: 2}
