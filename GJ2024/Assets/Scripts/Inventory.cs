@@ -28,8 +28,8 @@ public class Inventory : MonoBehaviour
         AddItem(11, 1);
         AddItem(17, 1);
         AddItem(14, 4);
-        AddItem(6, 3);
-        SetGold(24);
+
+        SetGold(12);
     }
 
     // Update is called once per frame
@@ -114,6 +114,7 @@ public class Inventory : MonoBehaviour
                     }
                 }
             }
+
         }
 
         if (itemAmount > 0)

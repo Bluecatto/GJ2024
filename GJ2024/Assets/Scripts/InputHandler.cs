@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
 
 public class InputHandler : MonoBehaviour
@@ -24,6 +25,11 @@ public class InputHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            SceneManager.LoadScene(0);
+        }
+
         if (inventory.itemsInInventory[inventory.slotNumber - 1] != null)
         {
             if (inventory.itemsInInventory[inventory.slotNumber - 1].ItemNumber == 17)
@@ -66,12 +72,12 @@ public class InputHandler : MonoBehaviour
                         }
                     case 11:
                         {
-                            PlayerAttack(5f, 0.425f);
+                            PlayerAttack(5f, 0.4f);
                             break;
                         }
                     case 12:
                         {
-                            PlayerAttack(12.5f, 0.85f);
+                            PlayerAttack(12.5f, 0.65f);
                             break;
                         }
                     case 14:

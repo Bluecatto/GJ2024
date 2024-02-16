@@ -23,7 +23,7 @@ public class EnemyHandler : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        difficultyScaling = Time.time / 60f;
+        difficultyScaling = Time.time / 360f;
 
         if (!cycleHandler.isDay && !spawned)
         {
